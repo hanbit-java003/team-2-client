@@ -16,6 +16,9 @@ const pages = [{
 }, {
     html: 'searchcafe',
     script: 'searchcafe'
+}, {
+    html: 'caferesult',
+    script: 'caferesult'
 }];
 
 module.exports = {
