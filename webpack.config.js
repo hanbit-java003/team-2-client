@@ -14,17 +14,8 @@ const pages = [{
     html: 'sub',
     script: 'sub'
 }, {
-    html: 'member-login',
-    script: 'member-login',
-}, {
-    html: 'member-join',
-    script: 'member-join',
-}, {
-    html: 'veterinary-clinic',
-    script: 'veterinary-clinic',
-}, {
-    html: 'clinic-details',
-    script: 'clinic-details'
+    html: 'searchcafe',
+    script: 'searchcafe'
 }];
 
 module.exports = {

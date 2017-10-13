@@ -1,0 +1,1 @@
+require('../less/caferesult.less');
