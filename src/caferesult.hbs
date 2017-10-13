@@ -81,11 +81,27 @@
         <div class="search-result-bar">
             LOCATION
         </div>
-        <ul class="cafe-map" style="background-color: red"></ul>
+        <ul class="cafe-map" style="background-color: red">
+            <li>MAP</li>
+        </ul>
         <ul class="cafe-location">
+            <li class="cafe-traffic">
+                대중교통
+            </li>
             <li>
-                <div class="cafe-loc-traffic"></div>
-                <div class="cafe-loc-car"></div>
+                <div>대중교통</div>
+                <div class="cafe-loc-traffic" id="loc-traffic">
+                    경의선, 공항철도 홍대입구역 7번출구
+                    2호선 홍대입구역 8번출구
+
+                    버스 273
+                </div>
+                <div class="cafe-loc-traffic" id="loc-car">
+                    홍대입구역에서 서교동교회 방면으로 10분
+                </div>
+            </li>
+            <li class="cafe-traffic" id="car">
+                자가용
             </li>
         </ul>
     </div>
@@ -93,6 +109,11 @@
         <div class="search-result-bar">
             간단 후기
         </div>
+        <ul class="cafe-search-review">
+            <li>A</li>
+            <li>B</li>
+            <li>C</li>
+        </ul>
     </div>
 </section>
 {{> template/footer}}
