@@ -34,6 +34,18 @@ const pages = [{
 }, {
     html: 'showoff-write',
     script: 'showoff-write'
+}, {
+    html: 'clinic-details',
+    script: 'clinic-details'
+}, {
+    html: 'member-join',
+    script: 'member-join'
+}, {
+    html: 'member-login',
+    script: 'member-login'
+}, {
+    html: 'veterinary-clinic',
+    script: 'veterinary-clinic'
 }];
 
 module.exports = {
