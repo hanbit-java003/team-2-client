@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>animalgo</title>
+</head>
+<body>
+{{> template/header}}
+<div class="clinic">
+    <div class="clinic-form">
+        <div class="clinic-info">
+            병원 찾기
+        </div>
+        <div class="clinic-form-search">
+            <div class="clinic-list">
+                Home > 병원찾기
+            </div>
+            <div class="always-clinic">
+                24시간 열려있는 동물병원입니다.
+            </div>
+            <div class="clinic-search">
+                <div class="clinic-24hour-search">
+                    <div class="clinic-search">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                            <span class="dropdown-location">지역선택</span>
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu clinic-tab-location">
+                            <li><a href="#">지역선택</a></li>
+                            <li class="location-list"><a href="#">서울시</a></li>
+                            <li class="location-list"><a href="#">경기도</a></li>
+                        </ul>
+
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                            <span class="dropdown-location">서울시</span>
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu clinic-tab-cities">
+                            <li class="cities-list"><a href="#">마포구</a></li>
+                            <li class="cities-list"><a href="#">송파구</a></li>
+                        </ul>
+
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                            <span class="dropdown-location">공덕동</span>
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu clinic-tab-dong">
+                            <li class="dong-list"><a href="#">공덕동</a></li>
+                            <li class="dong-list"><a href="#">신공덕동</a></li>
+                            <li class="dong-list"><a href="#">도화동</a></li>
+                            <li class="dong-list"><a href="#">아현동</a></li>
+                        </ul>
+                    </div>
+                    <div id="ag-search-words" class="input-group">
+                        <div class="input-group-addon" id="basic-addon1">
+                            <input type="text" class="form-control" placeholder="근처에 있는 24시운영 동물병원 검색하기" aria-describedby="basic-addon1">
+                            <i class="search-24" fa fa-search></i>
+                        </div>
+                    </div>
+                    <img class="location-24" src='img/locaiont01s.jpg'>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{> template/footer}}
+</body>
+</html>
