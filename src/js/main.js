@@ -1,5 +1,5 @@
 require('bootstrap');
-require('../less/main.less');
+require('../less/mainindex.less');
 var hello = require('./sample/hello');
 
 $('.say-hello').on('click', function() {

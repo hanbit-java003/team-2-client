@@ -11,6 +11,9 @@ const pages = [{
     html: 'index',
     script: 'main'
 }, {
+    html: 'mainindex',
+    script: 'mainindex'
+}, {
     html: 'sub',
     script: 'sub'
 }, {
@@ -19,6 +22,18 @@ const pages = [{
 }, {
     html: 'caferesult',
     script: 'caferesult'
+}, {
+    html: 'showoff',
+    script: 'showoff'
+}, {
+    html: 'showoff-page',
+    script: 'showoff-page'
+}, {
+    html: 'showoff-delete',
+    script: 'showoff-delete'
+}, {
+    html: 'showoff-write',
+    script: 'showoff-write'
 }];
 
 module.exports = {
