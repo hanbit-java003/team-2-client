@@ -1,3 +1,5 @@
+require('bootstrap');
+
 $('.header-menu-name').on('click', function () {
     var id = $(this).attr('id');
 
