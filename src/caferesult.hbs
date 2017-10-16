@@ -85,23 +85,23 @@
             <li>MAP</li>
         </ul>
         <ul class="cafe-location">
-            <li class="cafe-traffic">
-                대중교통
+            <li class="cafe-traffic" id="traffic">
+                대중교통 이용
             </li>
             <li>
-                <div>대중교통</div>
-                <div class="cafe-loc-traffic" id="loc-traffic">
-                    경의선, 공항철도 홍대입구역 7번출구
-                    2호선 홍대입구역 8번출구
+                <div class="cafe-loc-traffic">
+                    버스 : 153, 143, 162 승차 후 서강대학교 정류장에서 하차<br>
+                    지하철 : 2호선 신촌역 6번출구에서 서강대 방면으로 500M
 
-                    버스 273
-                </div>
-                <div class="cafe-loc-traffic" id="loc-car">
-                    홍대입구역에서 서교동교회 방면으로 10분
                 </div>
             </li>
             <li class="cafe-traffic" id="car">
-                자가용
+                자가용 이용
+            </li>
+            <li>
+                <div class="cafe-loc-traffic">
+                    홍대입구역에서 서교동교회 방면으로 10분
+                </div>
             </li>
         </ul>
     </div>
@@ -109,11 +109,48 @@
         <div class="search-result-bar">
             간단 후기
         </div>
-        <ul class="cafe-search-review">
-            <li>A</li>
-            <li>B</li>
-            <li>C</li>
-        </ul>
+        <table class="cafe-review-table table">
+            <thead>
+            <tr>
+                <th>No.</th>
+                <th>회원ID</th>
+                <th>후기</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1</td>
+                <td>뽀삐</td>
+                <td>엠보싱</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>momo</td>
+                <td>우리집</td>
+            </tr>
+            </tbody>
+        </table>
+        <table class="cafe-review-write table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>비밀번호(미 입력시 수정이 어렵습니다)</th>
+                <th>후기 입력</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>ID</td>
+                <td><input type="text" class="cafe-review-password" value="password"></td>
+                <td><textarea type="text" class="cafe-review-value"></textarea></td>
+                <td>
+                    <button class="btn-default">저장</button>
+                    <button class="btn-danger">취소</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 </section>
 {{> template/footer}}

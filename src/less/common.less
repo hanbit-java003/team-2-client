@@ -17,7 +17,6 @@ header {
   position: relative;
   height: @header-height;
   width: 100%;
-  min-width: 1000px;
   background-color: #D3E9E7;
   z-index: 1000;
 }
@@ -36,8 +35,18 @@ ul {
 
 .header-menu > li {
   display: inline-block;
+  line-height: @header-height;
   font-size: 20px;
   font-weight: bold;
+}
+
+.header-menu-name {
+  padding: 0 18px;
+  cursor: pointer;
+}
+
+.header-menu-name:hover {
+  color: #adc3c1;
 }
 
 .main-size {
@@ -94,12 +103,4 @@ ul {
   color: rgb(127, 127, 127);
 }
 
-.header-menu-name {
-  line-height: @header-height;
-  padding: 0 18px;
-  cursor: pointer;
-}
 
-.header-menu-name:hover {
-  color: #adc3c1;
-}
