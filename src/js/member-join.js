@@ -1,4 +1,5 @@
 require('bootstrap');
+require('./common');
 require('../less/member-join.less');
 
 $('.member-join').on('click', function() {
