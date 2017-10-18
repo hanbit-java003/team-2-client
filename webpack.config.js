@@ -45,7 +45,10 @@ const pages = [{
     script: 'member-login'
 }, {
     html: 'veterinary-clinic',
-    script: 'veterinary-clinic'
+    script: 'veterinary-clinic',
+}, {
+    html: 'community',
+    script: 'community'
 }];
 
 module.exports = {
