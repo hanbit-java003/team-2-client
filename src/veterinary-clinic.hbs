@@ -12,16 +12,14 @@
             병원 찾기
         </div>
         <div class="clinic-form-search">
-            <div class="clinic-list">
+            <!--<div class="clinic-list">
                 Home > 병원찾기
-            </div>
-            <div class="always-clinic">
-                24시간 열려있는 동물병원입니다.
-            </div>
+            </div>-->
+
             <div class="clinic-search">
                 <div class="clinic-24hour-search">
                     <div class="clinic-search">
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                        <button type="button" class="btn btn-default vc-dropdown-toggle" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
                             <span class="dropdown-location">지역선택</span>
                             <span class="caret"></span>
@@ -32,7 +30,7 @@
                             <li class="location-list"><!--<a href="#">-->경기도<!--</a>--></li>
                         </ul>
 
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                        <button type="button" class="btn btn-default vc-dropdown-toggle" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
                             <span class="dropdown-location">서울시</span>
                             <span class="caret"></span>
@@ -42,7 +40,7 @@
                             <li class="cities-list"><a href="#">송파구</a></li>
                         </ul>
 
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                        <button type="button" class="btn btn-default vc-dropdown-toggle" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
                             <span class="dropdown-location">공덕동</span>
                             <span class="caret"></span>
@@ -53,14 +51,35 @@
                             <li class="dong-list"><a href="#">도화동</a></li>
                             <li class="dong-list"><a href="#">아현동</a></li>
                         </ul>
-                    </div>
-                    <div id="ag-search-words" class="input-group">
+                        <div id="ag-search-words" class="input-group">
                         <span class="input-group-addon" id="basic-addon1">
                             <i class="search-24 fa fa-search fa-flip-horizontal"></i>
                         </span>
-                        <input type="text" class="form-control" placeholder="근처에 있는 24시운영 동물병원 검색하기" aria-describedby="basic-addon1">
+                            <input type="text" class="form-control" placeholder="근처에 있는 24시운영 동물병원 검색하기" aria-describedby="basic-addon1">
+                        </div>
+                        <div class="always-clinic">
+                            24시간 열려있는 동물병원입니다.
+                            <div class="location-24">
+
+                            </div>
+                        </div>
+
+                        <div class="location-24-details">
+                            <div class="detail-24-clinic">
+                                잠실종합동물병원
+                                <button id="clinic-button" class="view-24">거리뷰</button>
+                                <button id="clinic-button" class="load-search-24">길찾기</button>
+                            </div>
+                            <div>
+                                02-0000-0000
+                            </div>
+                            <div>
+                                서울 송파구 잠실동 130번지 하나빌딩 1층
+                            </div>
+                        </div>
+                        <!--<img class="location-24" src='img/locaiont01.jpg'>-->
                     </div>
-                    <img class="location-24" src='img/locaiont01.jpg'>
+
                 </div>
             </div>
         </div>
