@@ -6,7 +6,7 @@ body {
   position: relative;
   min-width: 1000px;
   min-height: 100%;
-  margin: 0;
+  margin-top: 80px;
   color: @font-color;
   font-family: 'NanumGothic';
 }
@@ -14,7 +14,9 @@ body {
 @header-height: 80px;
 
 header {
-  position: relative;
+  position: fixed;
+  top: 0px;
+  left: 0px;
   height: @header-height;
   width: 100%;
   background-color: #D3E9E7;
@@ -28,9 +30,9 @@ ul {
 }
 
 .header-menu {
-  position: absolute;
-  top: 0;
-  right: 90px;
+  position: relative;
+  display: inline-block;
+  margin-left: 890px;
 }
 
 .header-menu > li {
@@ -50,7 +52,7 @@ ul {
 }
 
 .main-size {
-  width: 1200px;
+  width: 1000px;
   margin: 0px auto;
 }
 
