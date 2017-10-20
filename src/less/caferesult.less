@@ -3,7 +3,7 @@
 
 .search-result-bar {
   font-weight: bold;
-  font-size: 24px;
+  font-size: 20px;
 }
 
 .search-result-bar > div {
@@ -11,18 +11,18 @@
   padding-left: 20px;
 }
 
-.cafe-result-detail {
+.result-detail {
   width: 100%;
   height: 600px;
-  margin-top: 50px;
+  margin: 50px 0;
   background-color: rgb(243, 245, 246);
 }
 
-.cafe-result {
+.result-detail-list {
   height: 100%;
 }
 
-.cafe-result > li {
+.result-detail-list > li {
   position: relative;
   float: left;
   display: inline-block;
@@ -32,18 +32,14 @@
   background-position: 50%;
 }
 
-.cafe-result > li:first-child {
+.result-detail-list > li:first-child {
   height: 100%;
   width: 60%;
   border-right: solid 2px #fff;
 }
 
-.cafe-result > li:nth-child(2) {
+.result-detail-list > li:nth-child(2) {
   border-bottom: solid 2px #fff;
-}
-
-.search-result-bar-info {
-  padding-top: 50px;
 }
 
 .search-result-bar {
@@ -51,14 +47,15 @@
 }
 
 .search-result-info {
-  font-size: 18px;
-  padding-top: 50px;
+  font-size: 16px;
+  padding: 50px 0;
 }
 
 .search-result-info > ul {
   display: inline-block;
   padding-left: 100px;
   text-align: left;
+  vertical-align: top;
 
   > li {
     text-align: left;
@@ -66,13 +63,12 @@
   }
 }
 
-.cafe-info {
+.info {
   font-weight: bold;
 }
 
 .search-result-bar-loc,
 .search-result-bar-review {
-  margin-top: 50px;
   width: 100%;
 }
 
@@ -84,28 +80,28 @@
 
 @cafe-location-height: 400px;
 
-#cafe-map {
+#map {
   height: @cafe-location-height;
   width: 50%;
 }
 
-.cafe-traffic {
+.traffic {
   text-align: left;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
   padding-top: 20px;
 }
 
-.cafe-traffic#car {
+.traffic#car {
   padding-top: 50px;
 }
 
-.cafe-loc-traffic {
+.loc-traffic {
   padding-top: 10px;
   line-height: 50px;
 }
 
-.cafe-location {
+.location {
   height: @cafe-location-height;
   width: 50%;
   padding-left: 20px;

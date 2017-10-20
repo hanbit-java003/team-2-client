@@ -7,34 +7,33 @@
 <body>
 {{> template/header}}
 <section class="search-bar">
-    <div class="search-main">지역별 동물 카페 찾기
-        <div class="search-select">
-            <div id="search-location-city" class="btn-group">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="dropdown-title">지역선택</span><span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                    <li>서울</li>
-                    <li>부산</li>
-                    <li>대구</li>
-                    <li>대전</li>
-                </ul>
-            </div>
-            <div id="search-location-gu">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="dropdown-title">구</span> <span class="caret"></span>
-                </button>
-            </div>
-            <div id="search-location-name" class="input-group">
-                <span class="input-group-addon" id="basic-addon1"><i class="fa fa-search fa-flip-horizontal"></i></span>
-                <input type="text" id="search-location-name-input" class="form-control" placeholder="이름으로 검색하기" aria-describedby="basic-addon1">
-            </div>
-            <div class="search-checkbox checkbox">
-                <label>
-                    <input id="search-checkbox-approve" type="checkbox">
-                    동물출입 가능한 카페만 찾기
-                </label>
-            </div>
+    <div class="search-main">지역별 동물 카페 찾기</div>
+    <div class="search-select">
+        <div id="search-location-city" class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="dropdown-title">지역선택</span><span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li>서울</li>
+                <li>부산</li>
+                <li>대구</li>
+                <li>대전</li>
+            </ul>
+        </div>
+        <div id="search-location-gu">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="dropdown-title">구</span> <span class="caret"></span>
+            </button>
+        </div>
+        <div id="search-location-name" class="input-group">
+            <span class="input-group-addon" id="basic-addon1"><i class="fa fa-search fa-flip-horizontal"></i></span>
+            <input type="text" id="search-location-name-input" class="form-control" placeholder="이름으로 검색하기" aria-describedby="basic-addon1">
+        </div>
+        <div class="search-checkbox checkbox">
+            <label>
+                <input id="search-checkbox-approve" type="checkbox">
+                동물출입 가능한 카페만 찾기
+            </label>
         </div>
     </div>
 </section>
@@ -47,8 +46,8 @@
             <i class="fa fa-heart"></i>
         </div>
     </div>
-    <div class="cafe-result-detail">
-        <ul class="cafe-result">
+    <div class="result-detail">
+        <ul class="result-detail-list">
             <li style="background-image: url('./img/sky-1.jpg')"></li>
             <li style="background-image: url('./img/sky-2.jpg')"></li>
             <li style="background-image: url('./img/sky-3.jpg')"></li>
@@ -59,7 +58,7 @@
             INFORMATION
         </div>
         <div class="search-result-info">
-            <ul class="cafe-info">
+            <ul class="info" id="cafe">
                 <li>종류</li>
                 <li>요금</li>
                 <li>번호</li>
@@ -67,7 +66,7 @@
                 <li>주소</li>
                 <li>기타</li>
             </ul>
-            <ul class="cafe-info-detail">
+            <ul class="info-detail" id="cafe-detail">
                 <li>애견카페</li>
                 <li>카페음료로 계산: 7500원~</li>
                 <li>02)978-4567</li>
@@ -81,23 +80,23 @@
         <div class="search-result-bar">
             LOCATION
         </div>
-        <ul id="cafe-map">
-            <li id="cafe-map-detail">MAP</li>
+        <ul id="map">
+            <li id="map-detail">MAP</li>
         </ul>
-        <ul class="cafe-location">
-            <li class="cafe-traffic" id="traffic">
+        <ul class="location">
+            <li class="traffic" id="traffic-cafe">
                 대중교통 이용
             </li>
             <li>
-                <div class="cafe-loc-traffic" id="loc-traffic">
+                <div class="loc-traffic" id="loc-traffic-cafe">
 
                 </div>
             </li>
-            <li class="cafe-traffic" id="car">
+            <li class="traffic" id="car-cafe">
                 자가용 이용
             </li>
             <li>
-                <div class="cafe-loc-traffic" id="loc-car">
+                <div class="loc-traffic" id="loc-car-cafe">
 
                 </div>
             </li>
