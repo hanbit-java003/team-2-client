@@ -5,3 +5,8 @@ $('.header-menu-name').on('click', function () {
 
     location.href = '/' + id + '.html';
 });
+
+$('#index').on('click', function () {
+    location.href = '/index.html';
+});
+
