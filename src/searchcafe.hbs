@@ -7,34 +7,39 @@
 <body>
 {{> template/header}}
 <section class="search-bar">
-    <div class="search-main">지역별 동물 카페 찾기
-        <div class="search-select">
-            <div id="search-location-city" class="btn-group">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="dropdown-title">지역선택</span><span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                    <li>서울</li>
-                    <li>부산</li>
-                    <li>대구</li>
-                    <li>대전</li>
-                </ul>
-            </div>
-            <div id="search-location-gu">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="dropdown-title">구</span> <span class="caret"></span>
-                </button>
-            </div>
-            <div id="search-location-name" class="input-group">
-                <span class="input-group-addon" id="basic-addon1"><i class="fa fa-search fa-flip-horizontal"></i></span>
-                <input type="text" id="search-location-name-input" class="form-control" placeholder="이름으로 검색하기" aria-describedby="basic-addon1">
-            </div>
-            <div class="search-checkbox checkbox">
-                <label>
-                    <input id="search-checkbox-approve" type="checkbox">
-                    동물출입 가능한 카페만 찾기
-                </label>
-            </div>
+    <div class="search-main">지역별 동물 카페 찾기</div>
+    <div class="search-select">
+        <div id="search-location-city" class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="dropdown-title">지역선택</span><span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li>서울</li>
+                <li>부산</li>
+                <li>대구</li>
+                <li>대전</li>
+            </ul>
+        </div>
+        <div id="search-location-gu">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="dropdown-title">구</span> <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li>강동구</li>
+                <li>강서구</li>
+                <li>강북구</li>
+                <li>광진구</li>
+            </ul>
+        </div>
+        <div id="search-location-name" class="input-group">
+            <span class="input-group-addon" id="basic-addon1"><i class="fa fa-search fa-flip-horizontal"></i></span>
+            <input type="text" id="search-location-name-input" class="form-control" placeholder="이름으로 검색하기" aria-describedby="basic-addon1">
+        </div>
+        <div class="search-checkbox checkbox">
+            <label>
+                <input id="search-checkbox-approve" type="checkbox">
+                동물출입 가능한 카페만 찾기
+            </label>
         </div>
     </div>
 </section>
