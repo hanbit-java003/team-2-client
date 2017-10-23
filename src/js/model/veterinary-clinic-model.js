@@ -1,4 +1,4 @@
-/*require('./common');
+require('./common');
 require('bootstrap');
 require('../less/veterinary-clinic.less');
 require('.model');
@@ -17,4 +17,4 @@ module.exports = [{
         telephone: '02-419-7580',
         address:'서울 송파구 삼학사로 44 보라빌딩 1층'
     }
-}];*/
+}];
