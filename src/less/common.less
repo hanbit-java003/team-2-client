@@ -1,12 +1,18 @@
-@font-color: #333;
-@main-color: rgb(211, 233, 231);
-@main-bgcolor: #d9dde3;
+@font-color: #555;
+@main-color: #FEBF74/*#FCCA42*/;
+@main-bgcolor: #FAFAF5;
+@highlight-color: #FCF50C;
+@object-bgcolor: #E0F0C3;
+@menu-bar: #FCFFD9;
+@footer-bg-color: #7AA374;
+
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC:700');
 
 body {
   position: relative;
   min-width: 1000px;
   min-height: 100%;
-  margin: 0;
+  margin-top: 80px;
   color: @font-color;
   font-family: 'NanumGothic';
 }
@@ -14,11 +20,15 @@ body {
 @header-height: 80px;
 
 header {
-  position: relative;
+  position: fixed;
+  top: 0px;
+  left: 0px;
   height: @header-height;
   width: 100%;
-  background-color: #D3E9E7;
+  background-color: @main-color;
   z-index: 1000;
+  box-shadow: 3px 0 7px rgba(50, 61, 59, 0.5);
+  text-decoration: none;
 }
 
 ul {
@@ -28,9 +38,10 @@ ul {
 }
 
 .header-menu {
-  position: absolute;
-  top: 0;
-  right: 90px;
+  position: relative;
+  display: inline-block;
+  margin-left: 600px;
+  top: -10px;
 }
 
 .header-menu > li {
@@ -47,6 +58,28 @@ ul {
 
 .header-menu-name:hover {
   color: #adc3c1;
+}
+
+.header-logo {
+  display: inline-block;
+}
+
+#member-layout {
+  color: @highlight-color;
+  width: 100px;
+  font-size: 20px;
+  line-height: @header-height;
+  text-align: center;
+  cursor: pointer;
+}
+
+#index {
+  color: @highlight-color;
+  padding-left: 80px;
+  text-align: center;
+  line-height: @header-height;
+  font-size: 50px;
+  cursor: pointer;
 }
 
 .main-size {
@@ -103,4 +136,15 @@ ul {
   color: rgb(127, 127, 127);
 }
 
+
+/*#EDDAF0*/
+
+footer {
+  font-family: 'Amatic SC', cursive;
+  font-size: 28px;
+  background-color: @footer-bg-color;
+  padding: 50px 0px 50px 80px;
+  text-align: center;
+  color: @menu-bar;
+}
 
