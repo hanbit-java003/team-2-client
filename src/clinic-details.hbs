@@ -6,87 +6,121 @@
 </head>
 <body>
 {{> template/header}}
-<div class="header-sub">
-    <div class="main-menu">
-        <div class="header-menu-submenu">
-            진료 안내
+<section class="search-bar">
+    <div class="search-main">진료 안내</div>
+    <div class="search-select">
+        <div id="search-location-city" class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="dropdown-title">지역선택</span><span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li>서울</li>
+                <li>부산</li>
+                <li>대구</li>
+                <li>대전</li>
+            </ul>
         </div>
-        <div class="information-veterinary-clinic">
-            <div class="member-list">
-                Home > 병원찾기
-            </div>
-            <h2 class="member-title">
-                잠실종합동물병원
-            </h2>
-            <div class="information-form">
-                <img id="clinic-detail" src='img/clinic-details1.jpg'>
-                <ul class="jamsil-info">
-                    <li class="hauptanschluss">
-                        대표번호 : 02-566-7588
-                    </li>
-                    <li class="address">
-                        주    소 : 서울시 송파구 잠실동 649번지 성보빌딜 1층 주차는 병원 앞 1층과 지하 1층 전용 주차장
-                    </li>
-                    <li class="traffic-facilities">
-                        대중교통안내
-                        지하철 : 잠실역 2번 출구로 나온 후, 직진 3분 도보 나폴레옹 제과점 골목 위치
-                    </li>
-                </ul>
-            </div>
+        <div id="search-location-gu">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="dropdown-title">구</span> <span class="caret"></span>
+            </button>
         </div>
-        <div class="medical-treatment">
-            <div class="medical-info">진료시간 안내</div>
-            <table class="table">
-                <thead>
-                    <tr class="table-th">
-                        <th>요일</th>
-                        <th>시간</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="table-td">
-                        <td>응급 진료</td>
-                        <td>오후 10시 ~ 익일 오전 9시</td>
-                    </tr>
-                </tbody>
-                <tbody>
-                    <tr class="table-td">
-                        <td>일요일 ~ 토요일</td>
-                        <td>오전 9시 ~ 오후 10시</td>
-                    </tr>
-                </tbody>
-            </table>
-            <div class="info-notice">
-                ※ 응급진료시간에는 <span class="charge-highlight"><strong>응급진료비가 청구</strong></span>되오니
+        <div id="search-location-name" class="input-group">
+            <span class="input-group-addon" id="basic-addon1"><i class="fa fa-search fa-flip-horizontal"></i></span>
+            <input type="text" id="search-location-name-input" class="form-control" placeholder="이름으로 검색하기" aria-describedby="basic-addon1">
+        </div>
+    </div>
+</section>
+<section class="search-result">
+    <div class="search-result-bar">
+        잠실종합동물병원
+    </div>
+    <div class="result-detail">
+        <ul class="result-detail-list-clinic">
+            <li style="background-image: url('./img/clinic-details1.jpg')"></li>
+        </ul>
+    </div>
+    <div class="search-result-bar-info">
+        <div class="search-result-bar">
+            병원 정보
+        </div>
+        <div class="search-result-info">
+            <ul class="info" id="clinic">
+                <li>대표번호</li>
+                <li>주소</li>
+            </ul>
+            <ul class="info-detail" id="clinic-detail">
+                <li>02-566-7588</li>
+                <li>서울시 송파구 잠실동 649번지<br>성보빌딜 1층 주차는 병원 앞 1층과 지하 1층 전용 주차장</li>
+            </ul>
+        </div>
+    </div>
+    <div class="search-result-bar-loc">
+        <div class="search-result-bar">
+            위치 안내
+        </div>
+        <ul id="map">
+            <li id="map-detail">MAP</li>
+        </ul>
+        <ul class="location">
+            <li class="traffic" id="traffic-clinic">
+                대중교통
+            </li>
+            <li>
+                <div class="loc-traffic" id="loc-traffic-clinic">
+                    버스 : <br>
+                    지하철 : 잠실역 2번 출구에서 직진 나폴레옹 제과점 골목 위치
+                </div>
+            </li>
+            <li class="traffic" id="car-clinic">
+                자가용
+            </li>
+            <li>
+                <div class="loc-traffic" id="loc-car-clinic">
+                    몰라요
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="search-result-bar-treat">
+        <div class="search-result-bar">
+            진료시간 안내
+        </div>
+        <div class="search-result-info">
+            <ul class="info" id="clinic-treat">
+                <li>요일</li>
+                <li>시간</li>
+                <li>응급 진료</li>
+            </ul>
+            <ul class="info-detail" id="clinic-treat-detail">
+                <li>일요일 ~ 토요일</li>
+                <li>오전 9시 ~ 오후 10시</li>
+                <li>오후 10시 ~ 익일 오전 9시</li>
+            </ul>
+            <div class="notice">
+                ※응급진료시간에는 <span class="highlight"><strong>응급진료비가 청구</strong></span>되오니
                 응급진료가 아닌 경우 일반 진료 시간에 내원하시기 바랍니다.
             </div>
         </div>
-        <div class="pet-beauty-treatment">
-            <div class="beauty-info">미용시간 안내</div>
-            <table class="table">
-                <thead>
-                <tr class="table-th">
-                    <th>요일</th>
-                    <th>시간</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr class="table-id">
-                    <td>일요일 ~ 토요일</td>
-                    <td>오전 10시 ~ 오후 7시</td>
-                </tr>
-                </tbody>
-                <tbody>
-                <tr>
-                    <td>미용실 예약 문의</td>
-                    <td>02) 556-7833</td>
-                </tr>
-                </tbody>
-            </table>
-
+    </div>
+    <div class="search-result-bar-beauty">
+        <div class="search-result-bar">
+            미용 안내
+        </div>
+        <div class="search-result-info">
+            <ul class="info" id="beauty">
+                <li>요일</li>
+                <li>시간</li>
+                <li>미용실 예약 문의</li>
+            </ul>
+            <ul class="info-detail" id="beauty-detail">
+                <li>일요일 ~ 토요일</li>
+                <li>오전 10시 ~ 오후 7시</li>
+                <li>02-556-7833</li>
+            </ul>
         </div>
     </div>
-</div>
+</section>
 {{> template/footer}}
 </body>
 </html>

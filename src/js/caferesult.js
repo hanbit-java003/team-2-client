@@ -22,11 +22,11 @@ var cafeModel = {
 };
 
 function initLocation() {
-    var wayTraffic = $('#loc-traffic');
+    var wayTraffic = $('#loc-traffic-cafe');
     wayTraffic.append('버스 : ' + cafeModel.way.traffic.bus + '<br>' +
         '지하철 : ' + cafeModel.way.traffic.subway);
 
-    var wayCar = $('#loc-car');
+    var wayCar = $('#loc-car-cafe');
     wayCar.append(cafeModel.way.car);
 
     var loadGoogleMapsApi = require('load-google-maps-api-2');
@@ -40,7 +40,7 @@ function initLocation() {
 
     loadGoogleMapsApi().then(function (googleMaps) {
         googleMap = googleMaps;
-        map = new googleMaps.Map($('#cafe-map')[0], {
+        map = new googleMaps.Map($('#map')[0], {
             center: cafeModel.location,
             scrollwheel: false,
             zoom: 18
