@@ -1,10 +1,12 @@
-@font-color: #555;
-@main-color: #FEBF74/*#FCCA42*/;
+@font-color: #333;
 @main-bgcolor: #FAFAF5;
-@highlight-color: #FCF50C;
-@object-bgcolor: #E0F0C3;
-@menu-bar: #FCFFD9;
+@bar-color: #FCFFD9;
+@highlight-color: #FCF49C;
 @footer-bg-color: #7AA374;
+@blue-color: #AFC9C9;
+@object-bgcolor: #E0F0C3;
+@header-bgcolor: #FEBF74;
+/*#FCCA42*/
 
 @import url('https://fonts.googleapis.com/css?family=Amatic+SC:700');
 
@@ -12,7 +14,7 @@ body {
   position: relative;
   min-width: 1000px;
   min-height: 100%;
-  margin-top: 80px;
+  margin: 0;
   color: @font-color;
   font-family: 'NanumGothic';
 }
@@ -20,15 +22,13 @@ body {
 @header-height: 80px;
 
 header {
-  position: fixed;
-  top: 0px;
-  left: 0px;
+  position: relative;
   height: @header-height;
   width: 100%;
-  background-color: @main-color;
+  background-color: @header-bgcolor;
+  color: #444;
   z-index: 1000;
   box-shadow: 3px 0 7px rgba(50, 61, 59, 0.5);
-  text-decoration: none;
 }
 
 ul {
@@ -38,10 +38,9 @@ ul {
 }
 
 .header-menu {
-  position: relative;
-  display: inline-block;
-  margin-left: 600px;
-  top: -10px;
+  position: absolute;
+  top: 0;
+  right: 90px;
 }
 
 .header-menu > li {
@@ -57,7 +56,7 @@ ul {
 }
 
 .header-menu-name:hover {
-  color: #adc3c1;
+  color: @highlight-color;
 }
 
 .header-logo {
@@ -136,15 +135,12 @@ ul {
   color: rgb(127, 127, 127);
 }
 
-
-/*#EDDAF0*/
-
 footer {
   font-family: 'Amatic SC', cursive;
   font-size: 28px;
   background-color: @footer-bg-color;
-  padding: 50px 0px 50px 80px;
+  padding: 50px 0px 50px 50px;
   text-align: center;
-  color: @menu-bar;
+  color: @bar-color;
 }
 
