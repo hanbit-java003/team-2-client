@@ -1,90 +1,70 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>애니멀고</title>
-</head>
-<body>
-{{> template/header}}
 <div class="header-sub">
     <div class="main-menu">
-        <div class="header-menu-submenu">
+        <!--<div class="header-menu-submenu">
             Login
-        </div>
+        </div>-->
         <div class="member-login">
             <div class="member-form">
 <!--                <div class="member-list">
                     Home > Login
                 </div>-->
                 <h2 class="member-title">
-                    WELCOME
+                    LOGIN
                 </h2>
                 <div class="member-title-memo">
                     animalGO에 오신것을 환영합니다.<br>
                     고객님께서 설정하신 아이디와 비밀번호를 입력해주세요.
                 </div>
                 <div class="sign-in-form">
-                    <div id="ag-id" class="member-form-group">
-                        아이디
-                        <i id="login-input-icon1" class="fa fa-fw fa-envelope-o"></i>
-                        <input id="id-box" class="login-placeholder-email" type="id" placeholder="아이디를 입력해주세요.">
+                    <div class="member-form-group">
+                        <div class="text-input">아이디</div>
+                        <input class="lg-input-text" type="text" placeholder="아이디를 입력해주세요.">
+                        <i class="fa fa-fw fa-envelope-o"></i>
                     </div>
                     <div class="member-form-group">
-                        비밀번호
-                        <i id="login-input-icon2" class="fa fa-fw fa-lock"></i>
-                        <input class="login-placeholder-password" type="password" placeholder="비밀번호를 입력해주세요.">
-                        <button class="member-btn">로그인</button>
+                        <div class="text-input">비밀번호</div>
+                        <input class="lg-input-text" type="password" placeholder="비밀번호를 입력해주세요.">
+                        <i class="fa fa-fw fa-lock"></i>
                     </div>
-                    <label class="login-auto">
-                        <input type="checkbox">
-                        자동로그인
-                    </label>
-                    <div>
+                    <div class="sns-login">
                         <!--카카오톡, 페이스북 로그인 버튼 추가-->
-                        <button class="kakao-login">kakao-talk <br> Login</button>
-                        <button class="facebook-login">facebook <br> Login</button>
+                        <button class="btn btn-outline-success btn-sm member-btn">로그인</button>
+                        <button class="btn btn-outline-success btn-sm member-btn">카카오톡<br>로그인</button>
+                        <button class="btn btn-outline-success btn-sm member-btn">페이스북<br>로그인</button>
+                        <label class="login-auto">
+                            <input type="checkbox">
+                            자동로그인
+                        </label>
                     </div>
+                </div>
+            </div>
+            <div class="member-note-margin member-note">
+                <div class="login-note">
+                    <i class="login-icon fa fa-user"></i>
+                    <div class="login-notice">
+                        아이디를 잊어버리셨나요?<br>고객님의 아이디를 찾아드립니다.
+                    </div>
+                    <button class="btn btn-outline-success id-btn">아이디 찾기</button>
                 </div>
             </div>
             <div class="member-note">
                 <div class="login-note">
-                    <i id="login-icon" class="fa fa-user "></i>
-                    <div id="login-notice">
-                        아이디를 잊어버리셨나요?
+                    <i class="login-icon fa fa-lock"></i>
+                    <div class="login-notice">
+                        비밀번호를 잊어버리셨나요?<br>고객님의 비밀번호를 찾아드립니다.
                     </div>
-                    고객님의 아이디를 찾아드립니다.
-                </div>
-                <div>
-                    <button class="id-btn btn-id">아이디 찾기</button>
+                    <button class="btn btn-outline-success id-btn">비밀번호 찾기</button>
                 </div>
             </div>
             <div class="member-note">
                 <div class="login-note">
-                    <i id="login-icon" class="fa fa-lock "></i>
-                    <div id="login-notice">
-                        비밀번호를 잊어버리셨나요?
+                    <i class="login-icon fa fa-paw"></i>
+                    <div class="login-notice">
+                        animalGo에 회원가입하시고<br>다양한 혜택을 누리세요.
                     </div>
-                    고객님의 비밀번호를 찾아드립니다.
-                </div>
-                <div>
-                    <button class="id-btn">비밀번호 찾기</button>
-                </div>
-            </div>
-            <div class="member-note">
-                <div class="login-note">
-                    <i id="login-icon" class="fa fa-paw "></i>
-                    <div id="login-notice">
-                        animalGO의 회원이 아니신가요?
-                    </div>
-                    회원가입하시고 다양한 혜택을 누리세요.
-                </div>
-                <div>
-                    <button class="member-join id-btn">회원가입</button>
+                    <button class="btn btn-outline-success id-btn">회원가입</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
-{{> template/footer}}
-</body>
-</html>
