@@ -19,3 +19,7 @@ $('.login-placeholder-email').on('click', function() {
 $('.login-placeholder-password').on('click', function() {
     alert('비밀번호를 입력해주세요.');
 });
+
+$('.member-login').on('click', function() {
+
+});
