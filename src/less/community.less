@@ -2,7 +2,7 @@
 
 .dark-layer {
   display: inline-block;
-  width: 600px;
+  width: 500px;
   background-color: rgba(0, 0, 0, 0);
   vertical-align: top;
 }
@@ -11,7 +11,7 @@
   background-color: rgba(0, 0, 0, 0.6);
 }
 
-.community {
+.showoff, .infoTip {
   position: relative;
   height: 500px;
   padding: 150px 0 0 10px;
@@ -19,24 +19,23 @@
   font-weight: bold;
   color: #eee;
   cursor: pointer;
+  span {
+    display: none;
+    font-size: 15px;
+    color: transparent;
+    font-weight: bold;
+  }
 }
 
-.community >span {
-  display: none;
-  font-size: 15px;
-  color: transparent;
-  font-weight: bold;
-}
-
-.infoTip-go {
+.infoTip {
   background-color: #92a1fd;
 }
 
-.showoff-go {
+.showoff {
   background-color: #47cafd;
 }
 
-.infoTip-go:hover {
+.infoTip:hover {
   background-image: url('../img/commu_infoTip.jpg');
   background-size: cover;
   span {
@@ -45,7 +44,7 @@
   }
 }
 
-.showoff-go:hover {
+.showoff:hover {
   background-image: url('../img/commu_showoff.jpg');
   background-size: cover;
   span {
