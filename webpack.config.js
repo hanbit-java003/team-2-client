@@ -41,9 +41,6 @@ const pages = [{
     html: 'member-join',
     script: 'member-join'
 }, {
-    html: 'member-login',
-    script: 'member-login'
-}, {
     html: 'veterinary-clinic',
     script: 'veterinary-clinic'
 }, {

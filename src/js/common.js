@@ -26,7 +26,7 @@ $('#member-layout').on('click', function () {
         duration: 500,
         complete: function () {
             $('.dark-layer').on('click', function () {
-                $('.header-sub').anmiate({
+                $('.header-sub').animate({
                     right: '-400px'
                 }, {
                     duration: 500,
