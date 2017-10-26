@@ -46,6 +46,9 @@ const pages = [{
 }, {
     html: 'community',
     script: 'community'
+}, {
+    html: 'infoTip',
+    script: 'infoTip'
 }];
 
 module.exports = {
