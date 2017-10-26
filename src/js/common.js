@@ -2,15 +2,12 @@ require('bootstrap');
 
 $('.header-menu-name').on('click', function () {
     var id = $(this).attr('id');
-
     location.href = '/' + id + '.html';
 });
-
 
 $('#index').on('click', function () {
     location.href = '/index.html';
 });
-
 
 $('#member-layout').on('click', function () {
     $('body').append('<div class="dark-layer"</div>');
@@ -26,7 +23,7 @@ $('#member-layout').on('click', function () {
         duration: 500,
         complete: function () {
             $('.dark-layer').on('click', function () {
-                $('.header-sub').anmiate({
+                $('.header-sub').animate({
                     right: '-400px'
                 }, {
                     duration: 500,
@@ -39,7 +36,4 @@ $('#member-layout').on('click', function () {
             });
         }
     });
-
 });
-
-

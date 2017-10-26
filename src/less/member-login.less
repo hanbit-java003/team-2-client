@@ -1,7 +1,6 @@
 @import 'common.less';
 
 .header-sub {
-  margin: auto;
   padding-left: 10px;
   position: fixed;
   width: 400px;
@@ -33,22 +32,36 @@
 }
 
 .member-title {
+  font-family: 'Amatic SC', cursive;
   color: @footer-bg-color;
   text-align: center;
   font-weight: bold;
-  font-size: 34px;
+  font-size: 40px;
   padding-top: 14px;
 }
 
 .member-title-memo {
   font-size: 15px;
-  padding: 10px 0px;
+  padding: 5px;
 }
-
 
 .member-form-group {
   position: relative;
   padding-top: 10px;
+}
+
+.member-form-group > input {
+  margin-left: 60px;
+  padding: 0 32px;
+  width: 300px;
+  height: 24px;
+  border: solid 1px #ccc;
+}
+
+.member-form-group > input:active,
+.member-form-group > input:focus {
+  outline: none;
+  border-color: @footer-bg-color;
 }
 
 .member-form-group > i {
@@ -64,13 +77,8 @@
   width: 60px;
 }
 
-.lg-input-text {
-  margin-left: 60px;
-  padding: 0 32px;
-  width: 300px;
-}
-
 .sign-in-form {
+  height: 265px;
   padding: 30px 40px 50px 0px;
   border-bottom: solid 1px #d4e8e6;
 }
@@ -131,7 +139,7 @@
   color: @footer-bg-color;
   position: absolute;
   text-align: center;
-  right: 0px;
+  right: 5px;
   background-color: @object-bgcolor;
   border-color: #d6f0c5;
   border-radius: 5px;
