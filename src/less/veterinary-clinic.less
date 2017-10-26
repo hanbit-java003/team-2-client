@@ -5,17 +5,13 @@
   width: 400px;
 }
 
-#search-location-name-input {
-  width: 100%;
-}
-
 .clinic-list {
   padding-top: 5px;
   font-size: 18px;
 }
 
 .always-clinic {
-  color: #e0f0c3;
+  color: @object-bgcolor;
   font-weight: bold;
   font-size: 24px;
   display: inline-block;
@@ -41,13 +37,12 @@
   background-color: #97e5fd;
   margin: 50px 30px 0px 0px;
   width: 400px;
-  /*display: inline-block;*/
 }
 
 .location-24-details {
   position: absolute;
   display: inline-block;
-  padding: 150px 0px 0px 50px;
+  padding: 150px 210px 0px 50px;
 }
 
 .input-group-addon {
@@ -56,26 +51,33 @@
 
 .detail-24-clinic {
   font-size: 18px;
-  margin-right: 50px;
+  margin-right: 20px;
   font-weight: bold;
-  min-width: 100px; //거리뷰, 길찾기 버튼 위치 맞추기
+  min-width: 240px; //거리뷰, 길찾기 버튼 위치 맞추기
+  display: inline-block;
 }
 
 #clinic-button {
   font-size: 12px;
-  border: solid 1px #ffffff;
+  font-weight: bold;
+  border: solid 1px @object-bgcolor;
+  background-color: @object-bgcolor;
   border-radius: 5px;
   padding: 2px 10px;
+  color: #ffffff;
 }
 
-.view-24 {
-  margin-left: 30px;
+#clinic-button:hover {
+  color: #000;
 }
 
+.load-search-24{
+  margin-right: 80px;
+}
 
 .clinic-number {
   font-size: 14px;
-  padding: 10px 40px 10px 20px;
+  padding: 10px 20px 10px 20px;
   display: inline-block;
 }
 
