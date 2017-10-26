@@ -43,13 +43,26 @@
 
 .member-title-memo {
   font-size: 15px;
-  padding: 10px;
+  padding: 5px;
 }
-
 
 .member-form-group {
   position: relative;
   padding-top: 10px;
+}
+
+.member-form-group > input {
+  margin-left: 60px;
+  padding: 0 32px;
+  width: 300px;
+  height: 24px;
+  border: solid 1px #ccc;
+}
+
+.member-form-group > input:active,
+.member-form-group > input:focus {
+  outline: none;
+  border-color: @footer-bg-color;
 }
 
 .member-form-group > i {
@@ -63,12 +76,6 @@
 .text-input {
   position: absolute;
   width: 60px;
-}
-
-.lg-input-text {
-  margin-left: 60px;
-  padding: 0 32px;
-  width: 300px;
 }
 
 .sign-in-form {
