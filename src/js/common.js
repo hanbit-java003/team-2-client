@@ -12,8 +12,11 @@ $('#index').on('click', function () {
 });
 
 
-/*$('#member-layout').on('click', function () {
-   var memberLayer = require('../template/member-login.hbs');
+$('#member-layout').on('click', function () {
+    $('body').append('<div class="dark-layer"</div>');
+    $('body').css('overflow', 'hidden');
+
+    var memberLayer = require('../member-login.hbs');
 
     $('body').append(memberLayer);
 
@@ -22,9 +25,21 @@ $('#index').on('click', function () {
     }, {
         duration: 500,
         complete: function () {
-            $('.header-sub').remove();
-            $('body').css('overflow', 'auto');
+            $('.dark-layer').on('click', function () {
+                $('.header-sub').anmiate({
+                    right: '-400px'
+                }, {
+                    duration: 500,
+                    complete: function () {
+                        $('.header-sub').remove();
+                        $('.dark-layer').remove();
+                        $('body').css('overflow', 'auto');
+                    }
+                });
+            });
         }
     });
-});*/
+
+});
+
 
