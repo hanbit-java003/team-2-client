@@ -1,4 +1,5 @@
 require('bootstrap');
+require('../less/common.less');
 
 $('.header-menu-name').on('click', function () {
     var id = $(this).attr('id');
