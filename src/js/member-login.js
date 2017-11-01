@@ -1,6 +1,6 @@
 require('./common');
 require('bootstrap');
-require('../less/member-login.less');
+require('../less/template/member-login.less');
 
 $('.member-join').on('click', function() {
     location.href = './member-join.html';

@@ -13,7 +13,7 @@ $('#member-layout').on('click', function () {
     $('body').append('<div class="dark-layer"</div>');
     $('body').css('overflow', 'hidden');
 
-    var memberLayer = require('../member-login.hbs');
+    var memberLayer = require('../template/member-login.hbs');
 
     $('body').append(memberLayer);
 
