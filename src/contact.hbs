@@ -6,43 +6,45 @@
 </head>
 <body>
 {{> template/header }}
-<section class="contact-animalgo">
-    <div class="search-main">
-        Contact US
-    </div>
-</section>
-<section class="contact-input">
-    <form class="contact-input-form">
-        <div class="form-group">
-            <label for="contact-input-info-name">Name</label>
-            <input type="text" id="contact-input-info-name"  placeholder="이름">
+<div class="main-window">
+    <section class="contact-animalgo">
+        <div class="search-main">
+            Contact US
         </div>
-        <div class="form-group">
-            <label for="contact-input-info-email">E-mail</label>
-            <input type="email" id="contact-input-info-email"  placeholder="답변 받으실 메일 주소를 입력하세요">
-        </div>
-        <div class="form-group">
-            <label for="contact-input-info-title">Title</label>
-            <input type="text" id="contact-input-info-title"  placeholder="제목">
-        </div>
-        <div class="form-group">
-            <label for="contact-input-info-message">Message</label>
-            <textarea type="text" id="contact-input-info-message" placeholder="내용을 입력하세요"></textarea>
-        </div>
-        <div class="btn btn-success contact-btn-send">SEND</div>
-    </form>
-    <ul class="animalgo-intro">
-        <li class="animalgo-intro-text">
-            <h2>애니멀고?</h2>
-            <div>
-                세상의 모든 반려동물들을 위한,<br>
-                반려동물과 함께하는 반려인들을 위한<br>
-                각종 정보 및 커뮤니티 제공 사이트
+    </section>
+    <section class="contact-input">
+        <form class="contact-input-form">
+            <div class="form-group">
+                <label for="contact-input-info-name">Name</label>
+                <input type="text" id="contact-input-info-name"  placeholder="이름">
             </div>
-        </li>
-        <li id="contact-info-logo" style="background-image: url('./img/contact-logo.png')"></li>
-    </ul>
-</section>
+            <div class="form-group">
+                <label for="contact-input-info-email">E-mail</label>
+                <input type="email" id="contact-input-info-email"  placeholder="답변 받으실 메일 주소를 입력하세요">
+            </div>
+            <div class="form-group">
+                <label for="contact-input-info-title">Title</label>
+                <input type="text" id="contact-input-info-title"  placeholder="제목">
+            </div>
+            <div class="form-group">
+                <label for="contact-input-info-message">Message</label>
+                <textarea type="text" id="contact-input-info-message" placeholder="내용을 입력하세요"></textarea>
+            </div>
+            <div class="btn btn-success contact-btn-send">SEND</div>
+        </form>
+        <ul class="animalgo-intro">
+            <li class="animalgo-intro-text">
+                <h2>애니멀고?</h2>
+                <div>
+                    세상의 모든 반려동물들을 위한,<br>
+                    반려동물과 함께하는 반려인들을 위한<br>
+                    각종 정보 및 커뮤니티 제공 사이트
+                </div>
+            </li>
+            <li id="contact-info-logo" style="background-image: url('./img/contact-logo.png')"></li>
+        </ul>
+    </section>
+</div>
 {{> template/footer }}
 </body>
 </html>

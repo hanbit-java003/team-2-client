@@ -1,6 +1,12 @@
 require('bootstrap');
 require('../less/common.less');
 
+function window() {
+    $('.main-window').fadeIn(400);
+}
+
+window();
+
 $('.header-menu-name').on('click', function () {
     var id = $(this).attr('id');
     location.href = '/' + id + '.html';

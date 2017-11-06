@@ -6,3 +6,9 @@ $('.contackus').on('click', function () {
 
     location.href = '/' + id + '.html';
 });
+
+function fadeIn() {
+    $('.main-logo').fadeIn(250);
+}
+
+fadeIn();

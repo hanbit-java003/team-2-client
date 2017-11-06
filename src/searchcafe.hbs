@@ -6,126 +6,128 @@
 </head>
 <body>
 {{> template/header}}
-<section class="search-bar">
-    <div class="search-main">지역별 동물 카페 찾기</div>
-    <div class="search-select">
-        <div id="search-location-city" class="btn-group">
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="dropdown-title">지역 선택</span><span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
-                <li>서울</li>
-                <li>부산</li>
-                <li>대구</li>
-                <li>대전</li>
+<div class="main-window">
+    <section class="search-bar">
+        <div class="search-main">지역별 동물 카페 찾기</div>
+        <div class="search-select">
+            <div id="search-location-city" class="btn-group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="dropdown-title">지역 선택</span><span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li>서울</li>
+                    <li>부산</li>
+                    <li>대구</li>
+                    <li>대전</li>
+                </ul>
+            </div>
+            <div id="search-location-gu" class="btn-group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="dropdown-title">구 선택</span><span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li>강동구</li>
+                    <li>강서구</li>
+                    <li>강북구</li>
+                    <li>광진구</li>
+                </ul>
+            </div>
+            <div id="search-location-name" class="cafe-input-group">
+                <span class="input-group-addon" id="basic-addon1"><i class="fa fa-search fa-flip-horizontal"></i></span>
+                <input type="text" id="search-location-name-input"  placeholder="이름으로 검색하기" aria-describedby="basic-addon1">
+            </div>
+            <div class="search-checkbox checkbox">
+                <label>
+                    <input id="search-checkbox-approve" type="checkbox">
+                    동물출입 가능한 카페만 찾기
+                </label>
+            </div>
+        </div>
+    </section>
+    <section class="search-result">
+        <div class="search-result-bar">
+            검색결과
+            (클릭시 상세정보를 볼 수 있습니다)
+            <div class="search-result-icon">
+                <i class="fa fa-car"></i>주차 공간 있음
+                <i class="fa fa-home"></i>호텔 가능
+                <i class="fa fa-heart"></i>반려동물 출입가능
+            </div>
+        </div>
+        <div class="search-result-box">
+            <ul class="search-result-list">
+                <li>
+                    <div class="search-result-text">모모동물병원</div>
+                    <div class="search-result-thumb" style="background-image: url('./img/Lighthouse.jpg')"></div>
+                    <div class="search-result-detail">
+                        <div class="search-detail-icon">
+                            <i class="fa fa-car"></i>
+                            <i class="fa fa-home"></i>
+                            <i class="fa fa-heart"></i>
+                        </div>
+                        <div class="search-detail-text">
+                            can't take my eyes off you<br>
+                            cold water<br>
+                            the blower's doughter<br>
+                            i can't take my mind off you
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="search-result-text">토니모리</div>
+                    <div class="search-result-thumb" style="background-image: url('./img/Lighthouse.jpg')"></div>
+                    <div class="search-result-detail">
+                        <div class="search-detail-icon">
+                            <i class="fa fa-car"></i>
+                            <i class="fa fa-home"></i>
+                            <i class="fa fa-heart"></i>
+                        </div>
+                        <div class="search-detail-text">
+                            can't take my eyes off you<br>
+                            cold water<br>
+                            the blower's doughter<br>
+                            i can't take my mind off you
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="search-result-text">와리가리</div>
+                    <div class="search-result-thumb" style="background-image: url('./img/Lighthouse.jpg')"></div>
+                    <div class="search-result-detail">
+                        <div class="search-detail-icon">
+                            <i class="fa fa-car"></i>
+                            <i class="fa fa-home"></i>
+                            <i class="fa fa-heart"></i>
+                        </div>
+                        <div class="search-detail-text">
+                            can't take my eyes off you<br>
+                            cold water<br>
+                            the blower's doughter<br>
+                            i can't take my mind off you
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="search-result-text">콜미베비</div>
+                    <div class="search-result-thumb" style="background-image: url('./img/Lighthouse.jpg')"></div>
+                    <div class="search-result-detail">
+                        <div class="search-detail-icon">
+                            <i class="fa fa-car"></i>
+                            <i class="fa fa-home"></i>
+                            <i class="fa fa-heart"></i>
+                        </div>
+                        <div class="search-detail-text">
+                            can't take my eyes off you<br>
+                            cold water<br>
+                            the blower's doughter<br>
+                            i can't take my mind off you
+                        </div>
+                    </div>
+                </li>
             </ul>
         </div>
-        <div id="search-location-gu" class="btn-group">
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="dropdown-title">구 선택</span><span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
-                <li>강동구</li>
-                <li>강서구</li>
-                <li>강북구</li>
-                <li>광진구</li>
-            </ul>
-        </div>
-        <div id="search-location-name" class="cafe-input-group">
-            <span class="input-group-addon" id="basic-addon1"><i class="fa fa-search fa-flip-horizontal"></i></span>
-            <input type="text" id="search-location-name-input"  placeholder="이름으로 검색하기" aria-describedby="basic-addon1">
-        </div>
-        <div class="search-checkbox checkbox">
-            <label>
-                <input id="search-checkbox-approve" type="checkbox">
-                동물출입 가능한 카페만 찾기
-            </label>
-        </div>
-    </div>
-</section>
-<section class="search-result">
-    <div class="search-result-bar">
-        검색결과
-        (클릭시 상세정보를 볼 수 있습니다)
-        <div class="search-result-icon">
-            <i class="fa fa-car"></i>주차 공간 있음
-            <i class="fa fa-home"></i>호텔 가능
-            <i class="fa fa-heart"></i>반려동물 출입가능
-        </div>
-    </div>
-    <div class="search-result-box">
-        <ul class="search-result-list">
-            <li>
-                <div class="search-result-text">모모동물병원</div>
-                <div class="search-result-thumb" style="background-image: url('./img/Lighthouse.jpg')"></div>
-                <div class="search-result-detail">
-                    <div class="search-detail-icon">
-                        <i class="fa fa-car"></i>
-                        <i class="fa fa-home"></i>
-                        <i class="fa fa-heart"></i>
-                    </div>
-                    <div class="search-detail-text">
-                        can't take my eyes off you<br>
-                        cold water<br>
-                        the blower's doughter<br>
-                        i can't take my mind off you
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="search-result-text">토니모리</div>
-                <div class="search-result-thumb" style="background-image: url('./img/Lighthouse.jpg')"></div>
-                <div class="search-result-detail">
-                    <div class="search-detail-icon">
-                        <i class="fa fa-car"></i>
-                        <i class="fa fa-home"></i>
-                        <i class="fa fa-heart"></i>
-                    </div>
-                    <div class="search-detail-text">
-                        can't take my eyes off you<br>
-                        cold water<br>
-                        the blower's doughter<br>
-                        i can't take my mind off you
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="search-result-text">와리가리</div>
-                <div class="search-result-thumb" style="background-image: url('./img/Lighthouse.jpg')"></div>
-                <div class="search-result-detail">
-                    <div class="search-detail-icon">
-                        <i class="fa fa-car"></i>
-                        <i class="fa fa-home"></i>
-                        <i class="fa fa-heart"></i>
-                    </div>
-                    <div class="search-detail-text">
-                        can't take my eyes off you<br>
-                        cold water<br>
-                        the blower's doughter<br>
-                        i can't take my mind off you
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="search-result-text">콜미베비</div>
-                <div class="search-result-thumb" style="background-image: url('./img/Lighthouse.jpg')"></div>
-                <div class="search-result-detail">
-                    <div class="search-detail-icon">
-                        <i class="fa fa-car"></i>
-                        <i class="fa fa-home"></i>
-                        <i class="fa fa-heart"></i>
-                    </div>
-                    <div class="search-detail-text">
-                        can't take my eyes off you<br>
-                        cold water<br>
-                        the blower's doughter<br>
-                        i can't take my mind off you
-                    </div>
-                </div>
-            </li>
-        </ul>
-    </div>
-</section>
+    </section>
+</div>
 {{> template/footer}}
 </body>
 </html>
