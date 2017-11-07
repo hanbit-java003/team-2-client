@@ -3,6 +3,12 @@ require('bootstrap');
 require('../less/showoff.less');
 
 var common = require('./common');
+var Search = require('./search');
+var search = new Search($('#showoff-search'), setList);
+
+$('.showoff-write').on('click', function () {
+    location.href = './showoff-write.html';
+});
 
 var showoffList = require('./model/showoff-list');
 
