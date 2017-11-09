@@ -62,28 +62,54 @@
                 애니멀고의 회원이 되시면<br>동물건강에 대한 정보는 물론
                 다른 이용자와의 정보교환 등 <br>다양한 활동을 하실 수 있습니다.
             </div>
-            <div class="sign-up-form">
-                <div class="join-form-group">
-                    <div class="text-input">아이디</div>
-                    <input type="email" placeholder="아이디로 사용할 이메일주소">
-                </div>
-                <div class="join-form-group">
-                    <div class="text-input">비밀번호</div>
-                    <input type="password" placeholder=" ">
-                    <div class="join-pw">*숫자,영어 조합의 8~12글자*</div>
-                </div>
-                <div class="join-form-group">
-                    <div class="text-input">비밀번호 확인</div>
-                    <input type="password" placeholder="비밀번호가 일치합니다">
-                </div>
-                <div class="join-btns">
-                    <button class="btn btn-outline-success btn-sm member-btn">JOIN</button>
-                </div>
-                <div class="join-text">
-                    이미 애니멀고의 회원이신가요? 로그인하기
-                    <div class="join-btns">
-                        <button class="btn btn-outline-success btn-sm member-btn">LOGIN</button>
+            <div class="join-form">
+                <div class="sign-up-form">
+                    <div class="join-form-group">
+                        <div class="text-input">아이디</div>
+                        <input type="email" placeholder="아이디로 사용할 이메일주소">
+                        <div class="join-id">*사용가능한 아이디 입니다</div>
                     </div>
+                    <div class="join-form-group">
+                        <div class="text-input">비밀번호</div>
+                        <input type="password" placeholder="비밀번호를 입력하세요">
+                        <div class="join-pw">*숫자,영어 조합의 8~12글자*</div>
+                    </div>
+                    <div class="join-form-group">
+                        <div class="text-input">비밀번호 확인</div>
+                        <input type="password" placeholder="비밀번호가 일치합니다">
+                    </div>
+                </div>
+                <div class="sign-up-btns">
+                    <div class="join-text agree-text">약관보기
+                        <label>
+                            <input id="agree" type="checkbox">
+                            약관동의
+                        </label>
+                    </div>
+                    <button class="join-btn btn btn-outline-success">JOIN</button>
+                </div>
+                <div class="sign-up-btns">
+                    <div class="join-text">이미 애니멀고의 회원이신가요?</div>
+                    <button class="join-btn btn btn-outline-success">LOGIN</button>
+                </div>
+            </div>
+            <div class="sign-up-sns">
+                <div class="sign-up-sns-text">sns로 로그인하기</div>
+                <div class="sign-up-sns-btns">
+                    <button class="btn btn-outline-success">KAKAO TALK</button>
+                    <button class="btn btn-outline-success">GOOGLE</button>
+                </div>
+            </div>
+            <div class="sign-up-sns-confirm">
+                <div id="join-confirm-text">
+                    본인 인증이란?<br>
+                    인증수단(핸드폰)을 통하여 본인이 맞는지 확인하는 서비스입니다.
+                </div>
+                <div class="join-confirm-tab" id="confirm-kakao">
+                    카카오톡인증하기탭
+                </div>
+                <div class="join-confirm-tab" id="confirm-google">
+                    구글인증탭
                 </div>
             </div>
         </div>
