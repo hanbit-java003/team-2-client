@@ -1,77 +1,81 @@
 module.exports = [{
     name: '서울시',
     subMenus: [{
+        id: 'Gangnam-Gu',
+        name: '강남구'
+    }, {
+        id: 'Gangdong-Gu',
+        name: '강동구'
+    }, {
+        id: 'Gangbuk-Gu',
+        name: '강북구'
+    }, {
+        id: 'Gangseo-Gu',
+        name: '강서구'
+    }, {
+        id: 'Gwanak-Gu',
+        name: '관악구'
+    }, {
+        id: 'Gwangjin-Gu',
+        name: '광진구'
+    }, {
+        id: 'Guro-Gu',
+        name: '구로구'
+    }, {
+        id: 'Geumcheon-Gu',
+        name: '금천구'
+    }, {
+        id: 'Nowon-Gu',
+        name: '노원구'
+    }, {
+        id: 'Dodong-Gu',
+        name: '도봉구'
+    }, {
+        id: 'Dongdaemun-Gu',
+        name: '동대문구'
+    }, {
+        id: 'Dongjak-Gu',
+        name: '동작구'
+    }, {
+        id: 'Mapo-Gu',
+        name: '마포구'
+    }, {
+        id: 'Seodaemun-Gu',
+        name: '서대문구'
+    }, {
+        id: 'Seocho-Gu',
+        name: '서초구'
+    }, {
+        id: 'Seongdong-Gu',
+        name: '성동구'
+    }, {
+        id: 'Seongbuk-Gu',
+        name: '성북구'
+    }, {
+        id: 'Songpa-Gu',
+        name: '송파구'
+    }, {
+        id: 'Yangcheon-Gu',
+        name: '양천구'
+    }, {
+        id: 'Yeongdeungpo-Gu',
+        name: '영등포구'
+    }, {
+        id: 'Yongsan-Gu',
+        name: '용산구'
+    }, {
+        id: 'Eunpyeong-Gu',
+        name: '은평구'
+    }, {
         id: 'Jongno-Gu',
         name: '종로구'
     }, {
         id: 'Jung-Gu',
         name: '중구'
     }, {
-        id: 'Gangdong-Gu',
-        name: '강동구'
-    }, {
-        id: 'Yongsan-Gu',
-        name: '용산구'
-    }, {
-        id: 'Seongdong-Gu',
-        name: '성동구'
-    }, {
-        id: 'Gwangjin-Gu',
-        name: '광진구'
-    }, {
-        id: 'Dongdaemun-Gu',
-        name: '동대문구'
-    }, {
         id: 'Jungnang-Gu',
         name: '중랑구'
     }, {
-        id: 'Seongbuk-Gu',
-        name: '성북구'
-    }, {
-        id: 'Gangbuk-Gu',
-        name: '강북구'
-    }, {
-        id: 'Dodong-Gu',
-        name: '도봉구'
-    }, {
-        id: 'Nowon-Gu',
-        name: '노원구'
-    }, {
-        id: 'Eunpyeong-Gu',
-        name: '은평구'
-    }, {
-        id: 'Seodaemun-Gu',
-        name: '서대문구'
-    }, {
-        id: 'Mapo-Gu',
-        name: '마포구'
-    }, {
-        id: 'Yangcheon-Gu',
-        name: '양천구'
-    }, {
-        id: 'Gangseo-Gu',
-        name: '강서구'
-    }, {
-        id: 'Guro-Gu',
-        name: '구로구'
-    }, {
-        id: 'Yeongdeungpo-Gu',
-        name: '영등포구'
-    }, {
-        id: 'Dongjak-Gu',
-        name: '동작구'
-    }, {
-        id: 'Gwanak-Gu',
-        name: '관악구'
-    }, {
-        id: 'Seocho-Gu',
-        name: '서초구'
-    }, {
-        id: 'Gangnam-Gu',
-        name: '강남구'
-    }, {
-        id: 'Songpa-Gu',
-        name: '송파구'
     }]
 }, {
     name: '경기도',
@@ -168,7 +172,102 @@ module.exports = [{
     }, {
         id: 'Hwaseong-Si',
         name: '화성시'
+    }]
+}, {
+    name: '부산광역시',
+    subMenu: [{
+        id: 'Bs-Gangseo-gu',
+        name: '강서구'
     }, {
+        id: 'Bs-Geumjung-gu',
+        name: '금정구'
+    }, {
+        id: 'Bs-Gijang-gu',
+        name: '기장군'
+    }, {
+        id: 'Bs-Nam-gu',
+        name: '남구'
+    }, {
+        id: 'Bs-Dong-gu',
+        name: '동구'
+    }, {
+        id: 'Bs-Dongnae-gu',
+        name: '동래구'
+    }, {
+        id: 'Bs-Jin-gu',
+        name: '진구'
+    }, {
+        id: 'Bs-buk-gu',
+        name: '북구'
+    }, {
+        id: 'Bs-Sasang-gu',
+        name: '사상구'
+    }, {
+        id: 'Bs-Saha-gu',
+        name: '사하구'
+    }, {
+        id: 'Bs-Seo-gu',
+        name: '서구'
+    }, {
+        id: 'Bs-Suyeong-gu',
+        name: '수영구'
+    }, {
+        id: 'Bs-Yeonje-gu',
+        name: '연제구'
+    }, {
+        id: 'Bs-Yeong-gu',
+        name: '영도구'
+    }, {
+        id: 'Bs-Jung-gu',
+        name: '중구'
+    }, {
+        id: 'Bs-Haeundae-gu',
+        name: '해운대구'
+    }]
+}, {
+    name: '대전광역시',
+    subMenu: [{
+        id: 'Dj-daedeok-gu',
+        name: '대덕구'
+    }, {
+        id: 'Dj-Dong-gu',
+        name: '동구'
+    }, {
+        id: 'Dj-Seo-gu',
+        name: '서구'
+    }, {
+        id: 'Dj-Yuseong-gu',
+        name: '유성구'
+    }, {
+        id: 'Dj-Jung-gu',
+        name: '중구'
+    }]
+}, {
+    name: '대구광역시',
+    subMenu: [{
+        id: 'Dg-Nam-gu',
+        name: '남구'
+    }, {
+        id: 'Dg-Dalseo-gu',
+        name: '달서구'
+    }, {
+        id: 'Dg-Dalseong-gun',
+        name: '달성군'
+    }, {
+        id: 'Dg-Dong-gu',
+        name: '동구'
+    }, {
+        id: 'Dg-Buk-gu',
+        name: '북구'
+    }, {
+        id: 'Dg-Seo-gu',
+        name: '서구'
+    }, {
+        id: 'Dg-Suseong-gu',
+        name: '수성구'
+    }, {
+        id: 'Dg-Jung-gu',
+        name: '중구'
 
     }]
 }];
