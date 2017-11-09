@@ -7,6 +7,13 @@ require('./model/cafe-model');
 
 var cafeModel = {
     name: '구름뜬하늘',
+    icons: [{
+        icon: 'car'
+    }, {
+        icon: 'home'
+    }, {
+        icon: 'heart'
+    }],
     location: {
         lat: 37.555087,
         lng: 126.926846
@@ -19,6 +26,16 @@ var cafeModel = {
 };
 
 function initLocation() {
+    $('.search-result-name').append(cafeModel.name);
+
+    var resultIconTemplate = require('../template/cafe-result-icon.hbs');
+
+    for (var i=0; i<cafeModel.icons.length; i++) {
+        var resultIconHtml = resultIconTemplate(cafeModel.icons[i]);
+
+        $('.search-result-icon').html(resultIconHtml);
+    }
+
     var wayTraffic = $('#loc-traffic-cafe');
     wayTraffic.append('버스 : ' + cafeModel.traffic.bus + '<br>' +
         '지하철 : ' + cafeModel.traffic.subway);
