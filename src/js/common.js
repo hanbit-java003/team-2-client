@@ -7,6 +7,7 @@ function window() {
 
 window();
 
+
 $('.header-menu-name').on('click', function () {
     var id = $(this).attr('id');
     location.href = '/' + id + '.html';
@@ -19,6 +20,7 @@ $('#index').on('click', function () {
 /*var memberLayer = require('../template/member-login.hbs');
 
 $('body').append(memberLayer);*/
+
 
 $('#member-layout').on('click', function () {
     $('body').append('<div class="dark-layer"</div>');
@@ -76,4 +78,37 @@ function closeMemberLayer() {
             $('body').css('overflow', 'auto');
         }
     });
+}
+
+function memberLogin() {
+    var email = $('#member-email').val().trim();
+    var password = $('#member-password').val().trim();
+
+    if (!email) {
+        alert('아이디를 입력하세요');
+        $('#member-email').focus();
+    }
+
+    else if (!password) {
+        alert('비밀번호를 입력하세요');
+        $('#member-password').focus();
+    }
+}
+
+function memberJoin() {
+    var email = $('#member-join-email').val().trim();
+    var pw = $('#member-join-password').val().trim();
+    var agree = $('#agree').prop('checked');
+
+    if(!email) {
+        alert('아이디를 입력하세요');
+        $('#member-email').focus();
+    }
+    else if (!pw) {
+        alert('비밀번호를 입력하세요');
+        $('#member-password').focus();
+    }
+    else if (!agree) {
+        alert('약관에 동의하세요');
+    }
 }

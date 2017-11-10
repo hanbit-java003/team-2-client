@@ -1,7 +1,7 @@
 require('./common');
 require('bootstrap');
 require('../less/caferesult.less');
-require('./model/cafe-model');
+require('./model/cafe-detail/cafe-model');
 
 /*var cafeModel = require('./model/cafe-model');*/
 
@@ -65,9 +65,10 @@ function initCafeResult() {
     }
 
     for (var i=0; i<cafeModel.infoDetail.length; i++) {
-        var cafeInfo = cafeModel.infoDetail[i];
+        var cafeInfoTemplate = require('../template/cafe-result-infos.hbs');
 
-        $('.info-detail').append('<li>' + cafeInfo);
+        cafeInfoHtml = cafeInfoTemplate(cafeModel.infoDetail[i]);
+        $('.info-detail').append(cafeInfoHtml);
     }
 
     var wayTraffic = $('#loc-traffic-cafe');
