@@ -15,7 +15,7 @@
 
 /*임시*/
 .member-login {
-  display: none;
+  display: block;
 }
 
 .header-main-menu {
@@ -152,6 +152,12 @@
   width: 110px;
 }
 
+/*<-- 회원가입 창 -->*/
+
+.member-join {
+  display: none;
+}
+
 .join-form {
   height: 300px;
   border-bottom: solid 1px #d4e8e6;
@@ -241,7 +247,11 @@
   text-align: center;
 }
 
-.sign-up-sns-btns > button {
+.sign-up-sns-btns > li {
+  display: inline-block;
+}
+
+.sign-up-sns-btns > li > button {
   width: 113px;
   color: #ffc254;
   font-size: 14px;
@@ -253,4 +263,12 @@
 
 #join-confirm-text {
   color: #bebebe;
+}
+
+.join-confirm-tab > li {
+  display: none;
+}
+
+.join-confirm-tab > li.active {
+  display: block;
 }
