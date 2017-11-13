@@ -1,5 +1,5 @@
 module.exports = [{
-    name: '서울시',
+    area: '서울시',
     subMenus: [{
         id: 'Gangnam-Gu',
         name: '강남구'
@@ -78,7 +78,7 @@ module.exports = [{
     }, {
     }]
 }, {
-    name: '경기도',
+    area: '경기도',
     subMenu: [{
         id: 'Gapyeong-Gun',
         name: '가평군'
@@ -174,7 +174,7 @@ module.exports = [{
         name: '화성시'
     }]
 }, {
-    name: '부산광역시',
+    area: '부산광역시',
     subMenu: [{
         id: 'Bs-Gangseo-gu',
         name: '강서구'
@@ -225,7 +225,7 @@ module.exports = [{
         name: '해운대구'
     }]
 }, {
-    name: '대전광역시',
+    area: '대전광역시',
     subMenu: [{
         id: 'Dj-daedeok-gu',
         name: '대덕구'
@@ -243,7 +243,7 @@ module.exports = [{
         name: '중구'
     }]
 }, {
-    name: '대구광역시',
+    area: '대구광역시',
     subMenu: [{
         id: 'Dg-Nam-gu',
         name: '남구'
