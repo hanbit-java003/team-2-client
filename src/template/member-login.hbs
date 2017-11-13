@@ -12,12 +12,12 @@
                 <div class="sign-in-form">
                     <div class="member-form-group">
                         <div class="text-input">아이디</div>
-                        <input type="text" placeholder="아이디를 입력해주세요.">
+                        <input type="email" id="member-email" placeholder="아이디를 입력해주세요.">
                         <i class="fa fa-fw fa-envelope-o"></i>
                     </div>
                     <div class="member-form-group">
                         <div class="text-input">비밀번호</div>
-                        <input type="password" placeholder="비밀번호를 입력해주세요.">
+                        <input type="password" id="member-password" placeholder="비밀번호를 입력해주세요.">
                         <i class="fa fa-fw fa-lock"></i>
                     </div>
                     <div class="sns-login">
@@ -50,7 +50,7 @@
                 <div class="login-note">
                     <i class="login-icon fa fa-paw"></i>
                     <div class="login-notice">animalGo에 회원가입하시고<br>다양한 혜택을 누리세요.</div>
-                    <button class="btn btn-outline-success id-btn">회원가입</button>
+                    <button class="btn btn-outline-success id-btn toggle-btn">회원가입</button>
                 </div>
             </div>
         </div>
@@ -66,17 +66,17 @@
                 <div class="sign-up-form">
                     <div class="join-form-group">
                         <div class="text-input">아이디</div>
-                        <input type="email" placeholder="아이디로 사용할 이메일주소">
+                        <input type="email" id="member-join-email" placeholder="아이디로 사용할 이메일주소">
                         <div class="join-id">*사용가능한 아이디 입니다</div>
                     </div>
                     <div class="join-form-group">
                         <div class="text-input">비밀번호</div>
-                        <input type="password" placeholder="비밀번호를 입력하세요">
+                        <input type="password" id="member-join-password" placeholder="비밀번호를 입력하세요">
                         <div class="join-pw">*숫자,영어 조합의 8~12글자*</div>
                     </div>
                     <div class="join-form-group">
                         <div class="text-input">비밀번호 확인</div>
-                        <input type="password" placeholder="비밀번호가 일치합니다">
+                        <input type="password" id="member-join-pw-check" placeholder="비밀번호가 일치합니다">
                     </div>
                 </div>
                 <div class="sign-up-btns">
@@ -90,27 +90,25 @@
                 </div>
                 <div class="sign-up-btns">
                     <div class="join-text">이미 애니멀고의 회원이신가요?</div>
-                    <button class="join-btn btn btn-outline-success">LOGIN</button>
+                    <button class="join-btn toggle-btn btn btn-outline-success">LOGIN</button>
                 </div>
             </div>
             <div class="sign-up-sns">
                 <div class="sign-up-sns-text">sns로 로그인하기</div>
-                <div class="sign-up-sns-btns">
-                    <button class="btn btn-outline-success">KAKAO TALK</button>
-                    <button class="btn btn-outline-success">GOOGLE</button>
-                </div>
+                <ul class="sign-up-sns-btns">
+                    <li><button class="btn btn-outline-success" id="kakao">KAKAO TALK</button></li>
+                    <li><button class="btn btn-outline-success" id="google">GOOGLE</button></li>
+                </ul>
             </div>
             <div class="sign-up-sns-confirm">
-                <div id="join-confirm-text">
-                    본인 인증이란?<br>
-                    인증수단(핸드폰)을 통하여 본인이 맞는지 확인하는 서비스입니다.
-                </div>
-                <div class="join-confirm-tab" id="confirm-kakao">
-                    카카오톡인증하기탭
-                </div>
-                <div class="join-confirm-tab" id="confirm-google">
-                    구글인증탭
-                </div>
+                <ul class="join-confirm-tab">
+                    <li class="active" id="join-confirm-text">
+                        본인인증이란?<br>
+                        인증수단(핸드폰)을 통하여 본인이 맞는지 확인하는 서비스입니다.
+                    </li>
+                    <li>카카오톡 인증하기 탭</li>
+                    <li>구글 인증하기 탭</li>
+                </ul>
             </div>
         </div>
     </div>
