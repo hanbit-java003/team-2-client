@@ -59,6 +59,11 @@ function openMemberLayer(memberInfo) {
                     joinUpSnsBtn(snsBtn);
                 });
             }
+            else {
+                $('#member-user-logout-btn').on('click', function () {
+                    memberLogOut();
+                });
+            }
 
             $('.dark-layer').on('click', function () {
                 closeMemberLayer();
@@ -99,6 +104,7 @@ function closeMemberLayer() {
 function memberJoin() {
     var email = $('#member-join-email').val().trim();
     var password = $('#member-join-password').val().trim();
+    var nickname = $('#member-join-nickname').val().trim();
     var agree = $('#agree').prop('checked');
 
     if (!email) {
@@ -111,6 +117,11 @@ function memberJoin() {
         $('#member-join-password').focus();
         return;
     }
+    else if (!nickname) {
+        alert('닉네임을 입력하세요');
+        $('#member-join-nickname').focus();
+        return;
+    }
     else if (!agree) {
         alert('약관에 동의하세요');
         return;
@@ -121,7 +132,8 @@ function memberJoin() {
         method: 'POST',
         data: {
             email: email,
-            password: password
+            password: password,
+            nickname: nickname
         },
         success: function (result) {
             alert('가입을 환영합니다');
@@ -153,7 +165,7 @@ function memberLogIn() {
         method: 'POST',
         data: {
             email: email,
-            password: password
+            password: password,
         },
         success: function (result) {
             alert(result.email + '어서오세요');
@@ -161,6 +173,15 @@ function memberLogIn() {
         },
         error: function (jqXHR) {
             alert(jqXHR.responseJSON.message);
+        }
+    });
+}
+
+function memberLogOut() {
+    $.ajax({
+        url: '/api/member/logout',
+        success: function () {
+            closeMemberLayer();
         }
     });
 }

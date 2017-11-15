@@ -1,5 +1,20 @@
 <div class="header-sub">
     <div class="main-menu">
+        {{#if login}}
+        <div class="member-user">
+            <h1 class="member-title">ANIMAL GO USER</h1>
+            <div class="member-user-icon">
+                <div class="member-user-icon-img"></div>
+                <div class="member-user-name">{{nickname}}</div>
+                <div class="member-user-email">{{email}}</div>
+            </div>
+            <ul class="member-user-page">
+                <li>내 정보 수정</li>
+                <li>회원 탈퇴</li>
+                <li id="member-user-logout-btn">LOGOUT</li>
+            </ul>
+        </div>
+        {{else}}
         <div class="member-login">
             <div class="member-form">
                 <h2 class="member-title">
@@ -70,6 +85,10 @@
                         <div class="join-id">*사용가능한 아이디 입니다</div>
                     </div>
                     <div class="join-form-group">
+                        <div class="text-input">닉네임</div>
+                        <input type="text" id="member-join-nickname" placeholder="사용할 닉네임">
+                    </div>
+                    <div class="join-form-group">
                         <div class="text-input">비밀번호</div>
                         <input type="password" id="member-join-password" placeholder="비밀번호를 입력하세요">
                         <div class="join-pw">*숫자,영어 조합의 8~12글자*</div>
@@ -79,7 +98,7 @@
                         <input type="password" id="member-join-pw-check" placeholder="비밀번호가 일치합니다">
                     </div>
                 </div>
-                <div class="sign-up-btns">
+                <div class="sign-up-btns join-btn-container">
                     <div class="join-text agree-text">약관보기
                         <label>
                             <input id="agree" type="checkbox">
@@ -147,18 +166,6 @@
                 </ul>
             </div>
         </div>
-        <div class="member-user">
-            <h1 class="member-title">ANIMAL GO USER</h1>
-            <div class="member-user-icon">
-                <div class="member-user-icon-img"></div>
-                <div class="member-user-name">{{nickname}}</div>
-                <div class="member-user-email">{{email}}</div>
-            </div>
-            <ul class="member-user-page">
-                <li>내 정보 수정</li>
-                <li>회원 탈퇴</li>
-                <li>LOGOUT</li>
-            </ul>
-        </div>
     </div>
+        {{/if}}
 </div>
