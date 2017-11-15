@@ -22,7 +22,7 @@
                     </div>
                     <div class="sns-login">
                         <!--카카오톡, 페이스북 로그인 버튼 추가-->
-                        <button class="btn btn-outline-success btn-sm member-btn">로그인</button>
+                        <button id="member-login-btn" class="btn btn-outline-success btn-sm member-btn">로그인</button>
                         <button class="btn btn-outline-success btn-sm member-btn">카카오톡<br>로그인</button>
                         <button class="btn btn-outline-success btn-sm member-btn">페이스북<br>로그인</button>
                         <label class="login-auto">
@@ -121,6 +121,7 @@
                                         url: '/v1/user/me',
                                         success: function (res) {
                                             alert(res.properties.nickname+'님 어서오세요.');
+                                            console.log(res.properties.nickname);
                                             location.href='/searchcafe.html';
                                         },
                                         fail: function (error) {
@@ -150,7 +151,7 @@
             <h1 class="member-title">ANIMAL GO USER</h1>
             <div class="member-user-icon">
                 <div class="member-user-icon-img"></div>
-                <div class="member-user-name">박서준</div>
+                <div class="member-user-name">{{nickname}}</div>
                 <div class="member-user-email">{{email}}</div>
             </div>
             <ul class="member-user-page">

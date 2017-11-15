@@ -18,7 +18,12 @@ $('#index').on('click', function () {
 });
 
 $('#member-layout').on('click', function () {
-    openMemberLayer();
+    $.ajax({
+        url: '/api/member/get',
+        success: function (result) {
+            openMemberLayer(result);
+        }
+    })
 });
 
 function openMemberLayer(memberInfo) {
@@ -28,26 +33,32 @@ function openMemberLayer(memberInfo) {
     var memberLayer = require('../template/member-login.hbs');
     var memberLayerHtml = memberLayer(memberInfo);
 
-    $('body').append(memberLayer);
-
-    $('.toggle-btn').on('click', function () {
-        $('.member-join').toggle();
-        $('.member-login').toggle();
-    });
+    $('body').append(memberLayerHtml);
 
     $('.header-sub').animate({
         right: '0px'
     }, {
         duration: 500,
         complete: function () {
-            $('#member-join-btn').on('click', function () {
-                memberJoin();
-            });
+            if (!memberInfo.login) {
+                $('.toggle-btn').on('click', function () {
+                    $('.member-join').toggle();
+                    $('.member-login').toggle();
+                });
 
-            $('.sign-up-sns-btns > li').on('click', function () {
-                var snsBtn = $(this);
-                joinUp(snsBtn);
-            });
+                $('#member-join-btn').on('click', function () {
+                    memberJoin();
+                });
+
+                $('#member-login-btn').on('click', function () {
+                    memberLogIn();
+                });
+
+                $('.sign-up-sns-btns > li').on('click', function () {
+                    var snsBtn = $(this);
+                    joinUpSnsBtn(snsBtn);
+                });
+            }
 
             $('.dark-layer').on('click', function () {
                 closeMemberLayer();
@@ -63,7 +74,7 @@ function openMemberLayer(memberInfo) {
 }
 
 
-function joinUp(snsBtn) {
+function joinUpSnsBtn(snsBtn) {
     var snsConfirm = $('.join-confirm-tab > li');
 
     var tabIndex = $(snsBtn).index();
@@ -118,6 +129,38 @@ function memberJoin() {
         },
         error: function (jqXHR) {
             alert('안된다');
+        }
+    });
+}
+
+function memberLogIn() {
+    var email = $('#member-email').val().trim();
+    var password = $('#member-password').val().trim();
+
+    if (!email) {
+        alert('이메일을 입력하세요');
+        $('#member-email').focus();
+        return;
+    }
+    else if (!password) {
+        alert('비밀번호를 입력하세요');
+        $('#member-password').focus();
+        return;
+    }
+
+    $.ajax({
+        url: '/api/member/login',
+        method: 'POST',
+        data: {
+            email: email,
+            password: password
+        },
+        success: function (result) {
+            alert(result.email + '어서오세요');
+            closeMemberLayer();
+        },
+        error: function (jqXHR) {
+            alert(jqXHR.responseJSON.message);
         }
     });
 }
