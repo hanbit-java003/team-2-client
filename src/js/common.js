@@ -9,7 +9,7 @@ function kakao() {
             Kakao.API.request({
                 url: '/v1/user/me',
                 success: function (res) {
-                    alert(res);
+                    alert(res.properties.nickname + ' 님, 환영합니다');
                     snsLogIn(res);
                 }
             });
