@@ -1,12 +1,30 @@
 require('bootstrap');
 require('../less/common.less');
+var scriptjs = require('scriptjs');
+
+function kakao() {
+    Kakao.init('2b2365a9407bbc5d15ceb4862f8ac6cc');
+    Kakao.Auth.login({
+        success: function(authObj) {
+            Kakao.API.request({
+                url: '/v1/user/me',
+                success: function (res) {
+                    alert(res);
+                    snsLogIn(res);
+                }
+            });
+        },
+        fail: function(err) {
+            alert(JSON.stringify(err));
+        }
+    });
+}
 
 function window() {
     $('.main-window').fadeIn(400);
 }
 
 window();
-
 
 $('.header-menu-name').on('click', function () {
     var id = $(this).attr('id');
@@ -35,6 +53,9 @@ function openMemberLayer(memberInfo) {
 
     $('body').append(memberLayerHtml);
 
+    scriptjs('//developers.kakao.com/sdk/js/kakao.js', function() {
+    });
+
     $('.header-sub').animate({
         right: '0px'
     }, {
@@ -57,6 +78,10 @@ function openMemberLayer(memberInfo) {
                 $('.sign-up-sns-btns > li').on('click', function () {
                     var snsBtn = $(this);
                     joinUpSnsBtn(snsBtn);
+                });
+
+                $('#custom-login-btn').on('click', function () {
+                    kakao();
                 });
             }
             else {
@@ -185,20 +210,20 @@ function memberLogOut() {
     });
 }
 
-$('#custom-login-btn').on('click', function () {
-    Kakao.init('2b2365a9407bbc5d15ceb4862f8ac6cc');
-    function loginWithKakao() {
-        // 로그인 창을 띄웁니다.
-        Kakao.Auth.login({
-            success: function (authObj) {
-                alert(JSON.stringify(authObj));
-            },
-            fail: function (err) {
-                alert(JSON.stringify(err));
-            }
-        });
-    }
-});
+function snsLogIn(kakaoMember) {
+    var nickname = kakaoMember.properties.nickname;
+
+    $.ajax({
+        url: '/api/member/snssignin',
+        method: 'POST',
+        data: {
+            nickname: nickname
+        },
+        success: function (result) {
+            closeMemberLayer();
+        }
+    });
+}
 
 function ktLogOut() {
     Kakao.Auth.logout(function () {
