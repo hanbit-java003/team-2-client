@@ -126,41 +126,7 @@
                         인증수단(핸드폰)을 통하여 본인이 맞는지 확인하는 서비스입니다.
                     </li>
                     <li>
-                        <a id="kakao-login-btn"></a>
-                        <a href="http://developers.kakao.com/logout"></a>
-                        <script type='text/javascript'>
-                            //<![CDATA[
-                            // 사용할 앱의 JavaScript 키를 설정해 주세요.
-                            Kakao.init('2b2365a9407bbc5d15ceb4862f8ac6cc');
-                            // 카카오 로그인 버튼을 생성합니다.
-                            Kakao.Auth.createLoginButton({
-                                container: '#kakao-login-btn',
-                                success: function(authObj) {
-                                    Kakao.API.request({
-                                        url: '/v1/user/me',
-                                        success: function (res) {
-                                            alert(res.properties.nickname+'님 어서오세요.');
-                                            console.log(res.properties.nickname);
-                                            location.href='/searchcafe.html';
-                                        },
-                                        fail: function (error) {
-                                            alert(JSON.stringify(err));
-                                        }
-                                    });
-                                },
-                                fail: function(err) {
-                                    alert(JSON.stringify(err));
-                                }
-                            });
-                            function ktLogOut() {
-                                Kakao.Auth.logout(function () {
-                                    setTimeout(function () {
-                                        location.href="http://localhost:99/caferesult.html"
-                                    }, 1000);
-                                });
-                            }
-                            //]]>
-                        </script>
+                        <img src="//mud-kage.kakao.com/14/dn/btqbjxsO6vP/KPiGpdnsubSq3a0PHEGUK1/o.jpg" width="300"/>
                     </li>
                     <li>구글 인증하기 탭</li>
                 </ul>

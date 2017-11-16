@@ -26,6 +26,7 @@ CREATE TABLE `member` (
   `uid` varchar(200) NOT NULL,
   `email` varchar(300) NOT NULL,
   `password` varchar(200) NOT NULL,
+  `nickname` varchar(400) NOT NULL,
   PRIMARY KEY (`uid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -36,7 +37,7 @@ CREATE TABLE `member` (
 
 LOCK TABLES `member` WRITE;
 /*!40000 ALTER TABLE `member` DISABLE KEYS */;
-INSERT INTO `member` VALUES ('5GzGYOA6UzLY','asdf','e9856d869974433c73e75b458127ec6d338a0ecee7033676c88115bd94e7c4d7891b3a47e313ba78');
+INSERT INTO `member` VALUES ('5GzGYOA6UzLY','asdf','e9856d869974433c73e75b458127ec6d338a0ecee7033676c88115bd94e7c4d7891b3a47e313ba78',''),('N1aOb7AytExn','aaaa','27b6a4c8497280bf413f159687f23cabe085f65f1cc324532711a3c65dcb2c83696eeff31d4f3b55','테스트입니다');
 /*!40000 ALTER TABLE `member` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -49,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-11-15 16:27:24
+-- Dump completed on 2017-11-16 10:56:55

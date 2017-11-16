@@ -23,7 +23,7 @@ $('#member-layout').on('click', function () {
         success: function (result) {
             openMemberLayer(result);
         }
-    })
+    });
 });
 
 function openMemberLayer(memberInfo) {
@@ -81,7 +81,6 @@ function openMemberLayer(memberInfo) {
 
 function joinUpSnsBtn(snsBtn) {
     var snsConfirm = $('.join-confirm-tab > li');
-
     var tabIndex = $(snsBtn).index();
 
     snsConfirm.removeClass('active');
@@ -165,10 +164,10 @@ function memberLogIn() {
         method: 'POST',
         data: {
             email: email,
-            password: password,
+            password: password
         },
         success: function (result) {
-            alert(result.email + '어서오세요');
+            alert(result.nickname + ' 님, 어서오세요');
             closeMemberLayer();
         },
         error: function (jqXHR) {
@@ -183,5 +182,28 @@ function memberLogOut() {
         success: function () {
             closeMemberLayer();
         }
+    });
+}
+
+$('#custom-login-btn').on('click', function () {
+    Kakao.init('2b2365a9407bbc5d15ceb4862f8ac6cc');
+    function loginWithKakao() {
+        // 로그인 창을 띄웁니다.
+        Kakao.Auth.login({
+            success: function (authObj) {
+                alert(JSON.stringify(authObj));
+            },
+            fail: function (err) {
+                alert(JSON.stringify(err));
+            }
+        });
+    }
+});
+
+function ktLogOut() {
+    Kakao.Auth.logout(function () {
+        setTimeout(function () {
+            refresh();
+        }, 1000);
     });
 }
