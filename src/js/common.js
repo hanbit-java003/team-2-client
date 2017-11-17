@@ -26,6 +26,12 @@ function window() {
 
 window();
 
+$('.hta-file-select').on('click', function() {
+    var fileInputId = $(this).attr('for');
+
+    $('#' + fileInputId).click();
+});
+
 $('.header-menu-name').on('click', function () {
     var id = $(this).attr('id');
     location.href = '/' + id + '.html';
@@ -87,11 +93,6 @@ function openMemberLayer(memberInfo) {
             else {
                 $('#member-user-logout-btn').on('click', function () {
                     memberLogOut();
-                    ktLogOut();
-                });
-
-                $('#drop-out').on('click', function () {
-                    withdraw();
                 });
             }
 
@@ -165,11 +166,11 @@ function memberJoin() {
             nickname: nickname
         },
         success: function (result) {
-            alert(nickname + ' 님, 환영합니다');
+            alert('가입을 환영합니다');
             closeMemberLayer();
         },
         error: function (jqXHR) {
-            alert(jqXHR.responseJSON.message);
+            alert('안된다');
         }
     });
 }
@@ -233,7 +234,7 @@ function snsLogIn(kakaoMember) {
 function ktLogOut() {
     Kakao.Auth.logout(function () {
         setTimeout(function () {
-
+            refresh();
         }, 1000);
     });
 }
