@@ -78,4 +78,8 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
+<<<<<<< Updated upstream
 -- Dump completed on 2017-11-17 17:44:51
+=======
+-- Dump completed on 2017-11-16 17:44:34
+>>>>>>> Stashed changes
