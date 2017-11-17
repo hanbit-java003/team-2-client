@@ -50,11 +50,31 @@ loadGoogleMapsApi().then(function (googleMaps) {
         marker = "<H3>여기는 잠실종합병원입니다."
     });*/
 
-}).catch(function (error) {
-    console.error(error);
+    }).catch(function (error) {
+        console.error(error);
+    });
+
+$.ajax({
+   url: 'api/clinic/' + clinicsId,
+   success: function (result) {
+       initClinic(result);
+   }
 });
 
+function initClinic(model) {
+    var lat = model.location.lat;
+    var lng = model.location.lng;
 
-/*$('.load-search-24').on('click', function() {
-    location.href = '/http://map.naver.com/';
-});*/
+    var apiKey = '9f51950dd945c485aa47e71554874096';
+    var apiUrl =
+        '?lat=' + lat +'&lon=' + lng +
+        '&appid=' + apiKey +
+        '&units=metric' +
+        '&callback=?';
+
+    $.getJSON(apiUrl, function (result) {
+
+    });
+}
+
+
