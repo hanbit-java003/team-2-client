@@ -7,11 +7,6 @@ function window() {
 
 window();
 
-$('.file-select').on('click', function() {
-    var fileInputId = $(this).attr('for');
-
-    $('#' + fileInputId).click();
-});
 
 $('.header-menu-name').on('click', function () {
     var id = $(this).attr('id');
