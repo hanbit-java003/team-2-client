@@ -9,7 +9,7 @@ function kakao() {
             Kakao.API.request({
                 url: '/v1/user/me',
                 success: function (res) {
-                    alert(res.properties.nickname + ' 님, 환영합니다');
+                    alert(res.properties.nickname + ' 님, 어서오세요');
                     snsLogIn(res);
                 }
             });
@@ -87,6 +87,11 @@ function openMemberLayer(memberInfo) {
             else {
                 $('#member-user-logout-btn').on('click', function () {
                     memberLogOut();
+                    ktLogOut();
+                });
+
+                $('#drop-out').on('click', function () {
+                    withdraw();
                 });
             }
 
@@ -160,11 +165,11 @@ function memberJoin() {
             nickname: nickname
         },
         success: function (result) {
-            alert('가입을 환영합니다');
+            alert(nickname + ' 님, 환영합니다');
             closeMemberLayer();
         },
         error: function (jqXHR) {
-            alert('안된다');
+            alert(jqXHR.responseJSON.message);
         }
     });
 }
@@ -228,7 +233,11 @@ function snsLogIn(kakaoMember) {
 function ktLogOut() {
     Kakao.Auth.logout(function () {
         setTimeout(function () {
-            refresh();
+
         }, 1000);
     });
+}
+
+function withdraw() {
+
 }
