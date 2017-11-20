@@ -3,9 +3,8 @@ require('bootstrap');
 require('../less/caferesult.less');
 require('./model/cafe-detail/cafe-model');
 
-/*var cafeModel = require('./model/cafe-model');*/
-
-var cafeModel = {
+/*var cafeModel = {
+    id: 'cloud',
     name: '구름뜬하늘',
     icons: [{
         icon: 'car'
@@ -43,12 +42,14 @@ var cafeModel = {
         subway: '2호선 신촌역 6번출구에서 600M',
         car: '홍대입구역에서 서교동교회 방면으로 5분'
     }
-};
+};*/
+
+var cafeModel = require('./model/cafe-detail/cafe-model');
 
 function initCafeResult() {
     $('.search-result-name').append(cafeModel.name);
 
-    var resultIconTemplate = require('../template/cafe-result-icon.hbs');
+    var resultIconTemplate = require('../template/cafe/cafe-result-icon.hbs');
 
     for (var i=0; i<cafeModel.icons.length; i++) {
         var resultIconHtml = resultIconTemplate(cafeModel.icons[i]);
@@ -56,7 +57,7 @@ function initCafeResult() {
         $('.search-result-icon').append(resultIconHtml);
     }
 
-    var resultImgTemplate = require('../template/cafe-result-img.hbs');
+    var resultImgTemplate = require('../template/cafe/cafe-result-img.hbs');
 
     for (var i=0; i<cafeModel.images.length; i++) {
         var resultImgHtml = resultImgTemplate(cafeModel.images[i]);
@@ -65,7 +66,7 @@ function initCafeResult() {
     }
 
     for (var i=0; i<cafeModel.infoDetail.length; i++) {
-        var cafeInfoTemplate = require('../template/cafe-result-infos.hbs');
+        var cafeInfoTemplate = require('../template/cafe/cafe-result-infos.hbs');
 
         cafeInfoHtml = cafeInfoTemplate(cafeModel.infoDetail[i]);
         $('.info-detail').append(cafeInfoHtml);

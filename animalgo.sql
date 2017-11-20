@@ -16,6 +16,169 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `area`
+--
+
+DROP TABLE IF EXISTS `area`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `area` (
+  `aId` varchar(100) NOT NULL,
+  `id` int(11) NOT NULL,
+  `cafe_name` varchar(100) NOT NULL,
+  PRIMARY KEY (`aId`,`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `area`
+--
+
+LOCK TABLES `area` WRITE;
+/*!40000 ALTER TABLE `area` DISABLE KEYS */;
+INSERT INTO `area` VALUES ('마포구',1,'구름뜬하늘');
+/*!40000 ALTER TABLE `area` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cafe_images`
+--
+
+DROP TABLE IF EXISTS `cafe_images`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cafe_images` (
+  `id` int(11) NOT NULL,
+  `cafe_id` varchar(100) NOT NULL,
+  `image` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_images_cafe_list1_idx` (`cafe_id`),
+  CONSTRAINT `fk_images_cafe_list1` FOREIGN KEY (`cafe_id`) REFERENCES `cafe_list` (`cafe_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cafe_images`
+--
+
+LOCK TABLES `cafe_images` WRITE;
+/*!40000 ALTER TABLE `cafe_images` DISABLE KEYS */;
+INSERT INTO `cafe_images` VALUES (1,'cloud','../img/sky-1.jpg'),(2,'cloud','../img/sky-2.jpg'),(3,'cloud','../img/sky-3.jpg');
+/*!40000 ALTER TABLE `cafe_images` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cafe_info`
+--
+
+DROP TABLE IF EXISTS `cafe_info`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cafe_info` (
+  `id` int(11) NOT NULL,
+  `cafe_id` varchar(100) NOT NULL,
+  `info` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_cafe_info_cafe_list1_idx` (`cafe_id`),
+  CONSTRAINT `fk_cafe_info_cafe_list1` FOREIGN KEY (`cafe_id`) REFERENCES `cafe_list` (`cafe_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cafe_info`
+--
+
+LOCK TABLES `cafe_info` WRITE;
+/*!40000 ALTER TABLE `cafe_info` DISABLE KEYS */;
+INSERT INTO `cafe_info` VALUES (1,'cloud','애견카페'),(2,'cloud','카페음료로 계산: 7500원~'),(3,'cloud','02)978-4567'),(4,'cloud','12PM ~ 22PM 매월 셋째주 수요일 휴무'),(5,'cloud','홍대'),(6,'cloud','주차공간이 협소하오니 대중교통을 이용하시길 권합니다.');
+/*!40000 ALTER TABLE `cafe_info` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cafe_list`
+--
+
+DROP TABLE IF EXISTS `cafe_list`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cafe_list` (
+  `cafe_id` varchar(100) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `background` varchar(150) DEFAULT NULL,
+  `summary` varchar(100) DEFAULT NULL,
+  `area_id` varchar(100) NOT NULL,
+  PRIMARY KEY (`cafe_id`,`area_id`),
+  KEY `area_key_idx` (`area_id`),
+  CONSTRAINT `area_key` FOREIGN KEY (`area_id`) REFERENCES `area` (`aId`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cafe_list`
+--
+
+LOCK TABLES `cafe_list` WRITE;
+/*!40000 ALTER TABLE `cafe_list` DISABLE KEYS */;
+INSERT INTO `cafe_list` VALUES ('cloud','구름뜬하늘','../img/sky-1.jpg','구름이와 하늘이','마포구');
+/*!40000 ALTER TABLE `cafe_list` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cafe_location`
+--
+
+DROP TABLE IF EXISTS `cafe_location`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cafe_location` (
+  `cafe_id` varchar(100) NOT NULL,
+  `lat` double NOT NULL,
+  `lng` double NOT NULL,
+  PRIMARY KEY (`cafe_id`),
+  CONSTRAINT `cafeid` FOREIGN KEY (`cafe_id`) REFERENCES `cafe_list` (`cafe_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cafe_location`
+--
+
+LOCK TABLES `cafe_location` WRITE;
+/*!40000 ALTER TABLE `cafe_location` DISABLE KEYS */;
+INSERT INTO `cafe_location` VALUES ('cloud',37.555087,126.926846);
+/*!40000 ALTER TABLE `cafe_location` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cafe_traffic`
+--
+
+DROP TABLE IF EXISTS `cafe_traffic`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cafe_traffic` (
+  `id` int(11) NOT NULL,
+  `cafe_id` varchar(100) NOT NULL,
+  `bus` varchar(100) DEFAULT NULL,
+  `subway` varchar(100) DEFAULT NULL,
+  `car` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`,`cafe_id`),
+  KEY `cafe_id_idx` (`cafe_id`),
+  CONSTRAINT `cafe_id` FOREIGN KEY (`cafe_id`) REFERENCES `cafe_list` (`cafe_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cafe_traffic`
+--
+
+LOCK TABLES `cafe_traffic` WRITE;
+/*!40000 ALTER TABLE `cafe_traffic` DISABLE KEYS */;
+INSERT INTO `cafe_traffic` VALUES (1,'cloud','153, 143, 162 승차 후 서강대학교 정류장에서 하차','2호선 신촌역 6번출구에서 600M','홍대입구역에서 서교동교회 방면으로 5분');
+/*!40000 ALTER TABLE `cafe_traffic` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `clinic_location`
 --
 
@@ -78,8 +241,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
-<<<<<<< Updated upstream
--- Dump completed on 2017-11-17 17:44:51
-=======
--- Dump completed on 2017-11-16 17:44:34
->>>>>>> Stashed changes
+-- Dump completed on 2017-11-20 16:43:38

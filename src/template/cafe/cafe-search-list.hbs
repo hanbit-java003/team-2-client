@@ -1,0 +1,14 @@
+<li cafe-id="{{id}}">
+    <div class="search-result-text">{{name}}</div>
+    <div class="search-result-thumb" style="background-image: url({{background}})"></div>
+    <div class="search-result-detail">
+        <div class="search-detail-icon">
+            {{~#if icons}}
+            <i class="fa fa-{{icon}}"></i>
+            {{/if}}
+        </div>
+        <div class="search-detail-text">
+            {{summary}}
+        </div>
+    </div>
+</li>
