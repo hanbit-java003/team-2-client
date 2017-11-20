@@ -100,6 +100,10 @@ function openMemberLayer(memberInfo) {
                 closeMemberLayer();
             });
 
+            $('#drop-out').on('click', function () {
+                withdraw();
+            });
+
             $('body').on('keydown', function (event) {
                 if (event.keyCode === 27) {
                     closeMemberLayer();
@@ -240,5 +244,16 @@ function ktLogOut() {
 }
 
 function withdraw() {
-
+   if (confirm('애니멀고를 탈퇴하시겠습니까?') == true) {
+       $.ajax({
+           url: '/api/member/dropout',
+           method: 'POST',
+           success: function (result) {
+                closeMemberLayer();
+           }
+       });
+   }
+   else {
+       closeMemberLayer();
+   }
 }
