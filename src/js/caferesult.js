@@ -1,7 +1,10 @@
 require('./common');
 require('bootstrap');
 require('../less/caferesult.less');
-require('./model/cafe-detail/cafe-model');
+
+var URLSearchParams = require('url-search-params');
+var params = new URLSearchParams(location.search);
+var cafeId = params.get('id');
 
 /*var cafeModel = {
     id: 'cloud',
@@ -44,40 +47,47 @@ require('./model/cafe-detail/cafe-model');
     }
 };*/
 
-var cafeModel = require('./model/cafe-detail/cafe-model');
+/*var cafeModel = require('./model/cafe-detail/cafe-model');*/
 
-function initCafeResult() {
-    $('.search-result-name').append(cafeModel.name);
+$.ajax({
+    url: '/api/cafe/' + cafeId,
+    success: function (result) {
+        initCafeResult(result);
+    }
+});
+
+function initCafeResult(model) {
+    $('.search-result-name').append(model.name);
 
     var resultIconTemplate = require('../template/cafe/cafe-result-icon.hbs');
 
-    for (var i=0; i<cafeModel.icons.length; i++) {
-        var resultIconHtml = resultIconTemplate(cafeModel.icons[i]);
+    /*for (var i=0; i<model.icons.length; i++) {
+        var resultIconHtml = resultIconTemplate(model.icons[i]);
 
         $('.search-result-icon').append(resultIconHtml);
-    }
+    }*/
 
     var resultImgTemplate = require('../template/cafe/cafe-result-img.hbs');
 
-    for (var i=0; i<cafeModel.images.length; i++) {
-        var resultImgHtml = resultImgTemplate(cafeModel.images[i]);
+    for (var i=0; i<model.images.length; i++) {
+        var resultImgHtml = resultImgTemplate(model.images[i]);
 
         $('.result-detail-list').append(resultImgHtml);
     }
 
-    for (var i=0; i<cafeModel.infoDetail.length; i++) {
+    for (var i=0; i<model.info.length; i++) {
         var cafeInfoTemplate = require('../template/cafe/cafe-result-infos.hbs');
 
-        cafeInfoHtml = cafeInfoTemplate(cafeModel.infoDetail[i]);
+        cafeInfoHtml = cafeInfoTemplate(model.info[i]);
         $('.info-detail').append(cafeInfoHtml);
     }
 
     var wayTraffic = $('#loc-traffic-cafe');
-    wayTraffic.append('버스' + '' + ':' + '' + cafeModel.traffic.bus + '<br>' +
-        '지하철' + '' + ':' + '' + cafeModel.traffic.subway);
+    wayTraffic.append('버스' + '' + ':' + '' + model.traffic.bus + '<br>' +
+        '지하철' + '' + ':' + '' + model.traffic.subway);
 
     var wayCar = $('#loc-car-cafe');
-    wayCar.append(cafeModel.traffic.car);
+    wayCar.append(model.traffic.car);
 
     var loadGoogleMapsApi = require('load-google-maps-api-2');
 
@@ -91,14 +101,14 @@ function initCafeResult() {
     loadGoogleMapsApi().then(function (googleMaps) {
         googleMap = googleMaps;
         map = new googleMaps.Map($('#map')[0], {
-            center: cafeModel.location,
+            center: model.location,
             scrollwheel: false,
             zoom: 18
         });
         var marker = new googleMaps.Marker({
-            position: cafeModel.location,
+            position: model.location,
             map: map,
-            label: cafeModel.name
+            label: model.name
         });
     }).catch(function (error) {
         console.error(error);
