@@ -23,10 +23,9 @@ DROP TABLE IF EXISTS `area`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `area` (
-  `aId` varchar(100) NOT NULL,
-  `id` int(11) NOT NULL,
-  `cafe_name` varchar(100) NOT NULL,
-  PRIMARY KEY (`aId`,`id`)
+  `id` varchar(100) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -36,7 +35,7 @@ CREATE TABLE `area` (
 
 LOCK TABLES `area` WRITE;
 /*!40000 ALTER TABLE `area` DISABLE KEYS */;
-INSERT INTO `area` VALUES ('마포구',1,'구름뜬하늘');
+INSERT INTO `area` VALUES ('mapogu','마포구');
 /*!40000 ALTER TABLE `area` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -48,12 +47,12 @@ DROP TABLE IF EXISTS `cafe_images`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cafe_images` (
-  `id` int(11) NOT NULL,
-  `cafe_id` varchar(100) NOT NULL,
+  `image_id` int(11) NOT NULL,
+  `id` varchar(100) NOT NULL,
   `image` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_images_cafe_list1_idx` (`cafe_id`),
-  CONSTRAINT `fk_images_cafe_list1` FOREIGN KEY (`cafe_id`) REFERENCES `cafe_list` (`cafe_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  PRIMARY KEY (`image_id`),
+  KEY `fk_images_cafe_list1_idx` (`id`),
+  CONSTRAINT `fk_images_cafe_list1` FOREIGN KEY (`id`) REFERENCES `cafe_list` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -75,12 +74,12 @@ DROP TABLE IF EXISTS `cafe_info`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cafe_info` (
-  `id` int(11) NOT NULL,
-  `cafe_id` varchar(100) NOT NULL,
+  `info_id` int(11) NOT NULL,
+  `id` varchar(100) NOT NULL,
   `info` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_cafe_info_cafe_list1_idx` (`cafe_id`),
-  CONSTRAINT `fk_cafe_info_cafe_list1` FOREIGN KEY (`cafe_id`) REFERENCES `cafe_list` (`cafe_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  PRIMARY KEY (`info_id`),
+  KEY `fk_cafe_info_cafe_list1_idx` (`id`),
+  CONSTRAINT `fk_cafe_info_cafe_list1` FOREIGN KEY (`id`) REFERENCES `cafe_list` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -102,14 +101,14 @@ DROP TABLE IF EXISTS `cafe_list`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cafe_list` (
-  `cafe_id` varchar(100) NOT NULL,
+  `id` varchar(100) NOT NULL,
   `name` varchar(100) NOT NULL,
   `background` varchar(150) DEFAULT NULL,
   `summary` varchar(100) DEFAULT NULL,
   `area_id` varchar(100) NOT NULL,
-  PRIMARY KEY (`cafe_id`,`area_id`),
-  KEY `area_key_idx` (`area_id`),
-  CONSTRAINT `area_key` FOREIGN KEY (`area_id`) REFERENCES `area` (`aId`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  PRIMARY KEY (`id`),
+  KEY `fk_cafe_list_area1_idx` (`area_id`),
+  CONSTRAINT `fk_cafe_list_area1` FOREIGN KEY (`area_id`) REFERENCES `area` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -119,7 +118,7 @@ CREATE TABLE `cafe_list` (
 
 LOCK TABLES `cafe_list` WRITE;
 /*!40000 ALTER TABLE `cafe_list` DISABLE KEYS */;
-INSERT INTO `cafe_list` VALUES ('cloud','구름뜬하늘','../img/sky-1.jpg','구름이와 하늘이','마포구');
+INSERT INTO `cafe_list` VALUES ('cloud','구름뜬하늘','../img/sky-1.jpg','구름이와 하늘이','mapogu');
 /*!40000 ALTER TABLE `cafe_list` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -131,11 +130,11 @@ DROP TABLE IF EXISTS `cafe_location`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cafe_location` (
-  `cafe_id` varchar(100) NOT NULL,
+  `id` varchar(100) NOT NULL,
   `lat` double NOT NULL,
   `lng` double NOT NULL,
-  PRIMARY KEY (`cafe_id`),
-  CONSTRAINT `cafeid` FOREIGN KEY (`cafe_id`) REFERENCES `cafe_list` (`cafe_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  PRIMARY KEY (`id`),
+  CONSTRAINT `cafeid` FOREIGN KEY (`id`) REFERENCES `cafe_list` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -157,14 +156,14 @@ DROP TABLE IF EXISTS `cafe_traffic`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cafe_traffic` (
-  `id` int(11) NOT NULL,
-  `cafe_id` varchar(100) NOT NULL,
+  `traffic_id` int(11) NOT NULL,
+  `id` varchar(100) NOT NULL,
   `bus` varchar(100) DEFAULT NULL,
   `subway` varchar(100) DEFAULT NULL,
   `car` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`id`,`cafe_id`),
-  KEY `cafe_id_idx` (`cafe_id`),
-  CONSTRAINT `cafe_id` FOREIGN KEY (`cafe_id`) REFERENCES `cafe_list` (`cafe_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  PRIMARY KEY (`traffic_id`),
+  KEY `cafe_id_idx` (`id`),
+  CONSTRAINT `cafe_id` FOREIGN KEY (`id`) REFERENCES `cafe_list` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -241,4 +240,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-11-20 16:43:38
+-- Dump completed on 2017-11-22 17:49:59
