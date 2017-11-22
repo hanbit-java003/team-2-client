@@ -19,6 +19,8 @@ var veterinaryClinicModel = {
     }
 };
 
+var clinicModel = require('./model/clinic-detail/clinic-model');
+
 var loadGoogleMapsApi = require('load-google-maps-api-2');
 
 loadGoogleMapsApi.key = 'AIzaSyAP9lbmuHUeAFCcMBLQ3epj5_yBnb_oYOQ';

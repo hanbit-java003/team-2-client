@@ -1,0 +1,14 @@
+{{#each results~}}
+    <li>
+        <div class="detail-24-clinic">
+            {{~title~}}
+            <button id="clinic-button" class="view-24">거리뷰</button>
+            <button id="clinic-button" class="view-24">길찾기</button>
+            <i class="fa fa-{{icon}}"></i>
+                {{~telephone~}}
+        </div>
+        <div class="clinic-address">
+            {{~contents~}}
+        </div>
+    </li>
+{{~/each}}
