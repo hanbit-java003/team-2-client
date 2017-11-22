@@ -5,6 +5,7 @@ require('./search-common/search');
 
 var Search = require('./search-common/search');
 var search = new Search($('#search-location-name-input'), setList);
+
 //area id 로 가져와야 함
 
 $.ajax({
@@ -41,7 +42,7 @@ function setList(cafe) {
     var cafeTemplate = require('../template/cafe/cafe-search-list.hbs');
     var cafeHtml = cafeTemplate(cafe);
 
-    $('.search-result-list').append(cafeHtml);
+    $('.search-result-list').html(cafeHtml);
 
     $('.search-result-list > li').on('click', function () {
         var cafeId = $(this).attr('cafe-id');
@@ -56,3 +57,8 @@ function addDropdownEvent(event, element) {
     var dropdownTitle = $(element).parents('.btn-group').find('.dropdown-title');
     dropdownTitle.html(html);
 }
+
+
+
+
+

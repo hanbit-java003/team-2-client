@@ -1,8 +1,8 @@
-var _ = require('lodash');
 var hangul = require('hangul-js');
+var _ = require('lodash');
 
 function Search(searchinput, setListFunction) {
-    var list = [];
+    var areaList = [];
 
     var inputbox = searchinput;
     var setList = setListFunction;
@@ -10,19 +10,15 @@ function Search(searchinput, setListFunction) {
     addEvents();
 
     var searchTimer;
-    var lastSearchTime = _.now();
+    var lastSearchTimer= _.now();
 
-    this.updateList = function (originList) {
-        list = originList;
+    this.updateList = function (orignList) {
+        areaList = orignList;
 
         search();
     };
 
     function addEvents() {
-        inputbox.on('paste cut', function (event) {
-            setTimeout(search, 100);
-        });
-
         inputbox.on('keyup', function (event) {
             switch (event.keyCode) {
                 case 27:
@@ -35,22 +31,27 @@ function Search(searchinput, setListFunction) {
             }
         });
 
+        inputbox.on('paste cut', function (event) {
+            setTimeout(search, 100);
+        });
+
+
         inputbox.on('input', function () {
             clearTimeout(searchTimer);
             var delay = 200;
             var now = _.now();
 
-            if (now - lastSerchTime > 1000) {
+            if (now - lastSearchTimer > 1000) {
                 delay = 0;
             }
 
-            searchTimer = setTimeout(function() {
+            searchTimer = setTimeout(function () {
                 search();
             }, delay);
         });
     }
 
-    function hangulSearch(text, keyword) {
+    function hangulSearch (text, keyword) {
         var disassembled = hangul.disassemble(keyword);
         var isChosung = true;
 
@@ -75,8 +76,8 @@ function Search(searchinput, setListFunction) {
     function search() {
         var keyword = _.kebabCase(inputbox.val().toLowerCase());
 
-        list.forEach(function(cafe) {
-            if (cafe.id.include(keyword) || hangulSearch(cafe.name, keyword)) {
+        areaList.forEach(function (cafe) {
+            if (cafe.cafeId.includes(keyword) || hangulSearch(cafe.name,keyword)) {
                 delete cafe.hidden;
             }
             else {
@@ -84,9 +85,9 @@ function Search(searchinput, setListFunction) {
             }
         });
 
-        setList(list);
+        setList(areaList);
 
-        lastSearchTime = _.now();
+        lastSearchTimer = _.now();
     }
 }
 

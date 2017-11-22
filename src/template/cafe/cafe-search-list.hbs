@@ -1,3 +1,5 @@
+{{~#each this~}}
+    {{~#unless hidden~}}
 <li cafe-id="{{cafeId}}">
     <div class="search-result-text">{{name}}</div>
     <div class="search-result-thumb" style="background-image: url({{background}})"></div>
@@ -12,3 +14,5 @@
         </div>
     </div>
 </li>
+    {{/unless}}
+{{/each}}
