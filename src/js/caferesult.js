@@ -7,13 +7,6 @@ var URLSearchParams = require('url-search-params');
 var params = new URLSearchParams(location.search);
 var cafeId = params.get('id');
 
-$.ajax({
-    url: '/api/cafe/' + cafeId,
-    success: function (result) {
-        initCafeResult(result);
-    }
-});
-
 function initCafeResult(cafe) {
     $('.search-result-name').text(cafe.name);
 
@@ -71,4 +64,9 @@ function initCafeResult(cafe) {
     });
 }
 
-initCafeResult();
+$.ajax({
+    url: '/api/cafe/' + cafeId,
+    success: function (result) {
+        initCafeResult(result);
+    }
+});
