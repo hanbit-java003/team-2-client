@@ -7,6 +7,17 @@ function Search(searchinput, setListFunction) {
     var inputbox = searchinput;
     var setList = setListFunction;
 
+    addEvents();
+
+    var searchTimer;
+    var lastSearchTime = _.now();
+
+    this.updateList = function (originList) {
+        list = originList;
+
+        search();
+    };
+
     function addEvents() {
         inputbox.on('paste cut', function (event) {
             setTimeout(search, 100);
@@ -40,11 +51,11 @@ function Search(searchinput, setListFunction) {
     }
 
     function hangulSearch(text, keyword) {
-        var disaasembled = hangul.disassemble(keyword);
+        var disassembled = hangul.disassemble(keyword);
         var isChosung = true;
 
-        for (var i=0; i<disaasembled.length; i++) {
-            if (!hangul.isCho(disaasembled[i])) {
+        for (var i=0; i<disassembled.length; i++) {
+            if (!hangul.isCho(disassembled[i])) {
                 isChosung = false;
                 break;
             }
@@ -64,15 +75,12 @@ function Search(searchinput, setListFunction) {
     function search() {
         var keyword = _.kebabCase(inputbox.val().toLowerCase());
 
-        list.forEach(function(item) {
-            var id = item.id.toLowerCase();
-            var name = item.name.toLowerCase();
-
-            if (id.include(keyword) || hangulSearch(name, keyword)) {
-                delete item.hidden;
+        list.forEach(function(cafe) {
+            if (cafe.id.include(keyword) || hangulSearch(cafe.name, keyword)) {
+                delete cafe.hidden;
             }
             else {
-                item.hidden = true;
+                cafe.hidden = true;
             }
         });
 
