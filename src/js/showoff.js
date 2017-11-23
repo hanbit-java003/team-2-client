@@ -26,11 +26,13 @@ initShowoffList(showoffList);
 
 
 function setList(theres) {
-    var showTemplate = require('../../template/showoff.hbs');
+    // showoff.hbs 가 존재하지 않아서 에러 -> 추가하시고 주석 해제하세요
+    /*var showTemplate = require('../../template/showoff.hbs');*/
     var showHtml = showTemplate(theres);
 
     $('.pet-like-board-cont').html(showHtml);
 
+    // there-id , there-info-edit.html 수정해주세요~
     $('.pet-like-board-cont > li').on('click', function() {
         var thereId = $(this).attr('there-id');
 
