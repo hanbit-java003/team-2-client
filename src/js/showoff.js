@@ -1,8 +1,12 @@
-require('./common');
 require('bootstrap');
 require('../less/showoff.less');
 
 var common = require('./common');
+
+
+$('.showoff-write').on('click', function() {
+    location.href = './showoff-write.html';
+});
 
 var showoffList = require('./model/showoff-list');
 
@@ -20,3 +24,16 @@ function initShowoffList(showoffList) {
 
 initShowoffList(showoffList);
 
+
+function setList(theres) {
+    var showTemplate = require('../../template/showoff.hbs');
+    var showHtml = showTemplate(theres);
+
+    $('.pet-like-board-cont').html(showHtml);
+
+    $('.pet-like-board-cont > li').on('click', function() {
+        var thereId = $(this).attr('there-id');
+
+        location.href = './there-info-edit.html?id=' + thereId;
+    });
+}

@@ -123,7 +123,7 @@ $('.w-btn').on('click', function() {
     });
 
     $.ajax({
-        url: '/api/admin/activity/save',
+        url: '/api/showoff/save',
         method: 'POST',
         contentType: false,
         processData: false,
@@ -131,7 +131,7 @@ $('.w-btn').on('click', function() {
         success: function(result) {
             alert('정상적으로 저장되었습니다.');
 
-            location.href = './activity-edit.html?id=' + model.id;
+            location.href = './showoff.html?no=' + model.no;
         },
         error: function() {
             alert('저장 중 오류가 발생하였습니다.');
