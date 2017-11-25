@@ -257,3 +257,13 @@ function withdraw() {
        closeMemberLayer();
    }
 }
+
+function addDropEvent(event, element) {
+    /*event.preventDefault();*/
+
+    var html = $(element).html();
+    var dropdownTitle = $(element).parents('.btn-group').find('.dropdown-title');
+    dropdownTitle.html(html);
+}
+
+module.exports= addDropEvent();

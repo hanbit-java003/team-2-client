@@ -1,14 +1,16 @@
-{{#each results~}}
-    <li>
+{{~#each results~}}
+    {{~#unless hidden~}}
+    <li clinic-id="{{id}}">
         <div class="detail-24-clinic">
-            {{~title~}}
+            {{~name~}}
             <button id="clinic-button" class="view-24">거리뷰</button>
             <button id="clinic-button" class="view-24">길찾기</button>
-            <i class="fa fa-{{icon}}"></i>
+            <i class="fa fa-phone"></i>
                 {{~telephone~}}
         </div>
         <div class="clinic-address">
-            {{~contents~}}
+            {{~address~}}
         </div>
     </li>
+{{/unless}}
 {{~/each}}

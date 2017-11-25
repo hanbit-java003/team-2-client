@@ -77,7 +77,7 @@ function Search(searchinput, setListFunction) {
         var keyword = _.kebabCase(inputbox.val().toLowerCase());
 
         areaList.forEach(function (cafe) {
-            if (cafe.cafeId.includes(keyword) || hangulSearch(cafe.name,keyword)) {
+            if (cafe.id.includes(keyword) || hangulSearch(cafe.name,keyword)) {
                 delete cafe.hidden;
             }
             else {

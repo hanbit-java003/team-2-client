@@ -3,7 +3,10 @@ require('bootstrap');
 require('../less/veterinary-clinic.less');
 require('../js/model/veterinary-clinic-model');
 
-var veterinaryClinicModel = {
+var Search = require('./search-common/search');
+var search = new Search($('#search-location-name-input'), setList);
+
+/*var veterinaryClinicModel = {
     name: '잠실종합동물병원',
     location: {
         lat: 37.5023506,
@@ -17,66 +20,88 @@ var veterinaryClinicModel = {
         telephone: '02-419-7580',
         address:'서울 송파구 삼학사로 44 보라빌딩 1층'
     }
-};
-
-var clinicModel = require('./model/clinic-detail/clinic-model');
-
-var loadGoogleMapsApi = require('load-google-maps-api-2');
-
-loadGoogleMapsApi.key = 'AIzaSyAP9lbmuHUeAFCcMBLQ3epj5_yBnb_oYOQ';
-loadGoogleMapsApi.language = 'ko';
-loadGoogleMapsApi.version = '3';
-
-var googleMap;
-var map;
-
-loadGoogleMapsApi().then(function (googleMaps) {
-    googleMap = googleMaps;
-    map = new googleMaps.Map($('.location-24')[0], {
-        center: {
-            lat: 37.5023506,
-            lng: 127.11023620000003
-        },
-        scrollwheel: false,
-        zoom: 18
-    });
-    var marker = new googleMaps.Marker({
-        position: {
-            lat: 37.5023506,
-            lng: 127.11023620000003,
-        },
-        map: map,
-        label: veterinaryClinicModel.name
-    });
-/*    event.marker(marker, "mouseover", function() {
-        marker = "<H3>여기는 잠실종합병원입니다."
-    });*/
-
-    }).catch(function (error) {
-        console.error(error);
-    });
+};*/
 
 $.ajax({
-   url: 'api/clinic/' + clinicsId,
+   url: '/api/clinic/area',
    success: function (result) {
-       initClinic(result);
+       var areaTemplate = require('../template/cafe/cafe-area.hbs');
+       var areaHtml = areaTemplate(result);
+
+       $('#search-location-gu .dropdown-menu').html(areaHtml);
+       $('#search-location-gu .dropdown-menu a').on('click', function (event) {
+           addDropEvent(event, this);
+
+           var areaId = $(this).att('area-id');
+           requestList(areaId);
+       });
    }
 });
 
-function initClinic(model) {
-    var lat = model.location.lat;
-    var lng = model.location.lng;
+function requestList(areaId) {
+    $.ajax({
+        url: '/api/clinic/list',
+        data: {
+            areaId: areaId
+        },
+        success: function (result) {
+            search.updateList(result);
+        }
+    });
+}
 
-    var apiKey = '9f51950dd945c485aa47e71554874096';
-    var apiUrl =
-        '?lat=' + lat +'&lon=' + lng +
-        '&appid=' + apiKey +
-        '&units=metric' +
-        '&callback=?';
+function setList(clinic) {
+    var template = require('../template/clinic/clinic-search-list.hbs')
+    var html = template(clinic);
 
-    $.getJSON(apiUrl, function (result) {
+    $('.clinic-result-list').html(html);
 
+    $('.clinic-result-list > li').on('click', function () {
+        var clinicId = $(this).attr('clinic-id');
+        location.href = './clinic-details.html?id=' + clinicId;
     });
 }
 
 
+var clinicId = params.get('id');
+
+function initClinic(model) {
+    var loadGoogleMapsApi = require('load-google-maps-api-2');
+    var googleMap;
+    var map;
+    var lat = model.lat;
+    var lng = model.lng;
+
+    loadGoogleMapsApi.key = 'AIzaSyAP9lbmuHUeAFCcMBLQ3epj5_yBnb_oYOQ';
+    loadGoogleMapsApi.language = 'ko';
+    loadGoogleMapsApi.version = '3';
+
+    loadGoogleMapsApi().then(function (googleMaps) {
+        googleMap = googleMaps;
+        map = new googleMaps.Map($('.location-24')[0], {
+            center: {
+                lat: lat,
+                lng: lng
+            },
+            scrollwheel: false,
+            zoom: 18
+        });
+        var marker = new googleMaps.Marker({
+            position: {
+                lat: lat,
+                lng: lng
+            },
+            map: map,
+            label: model.name
+    });
+    }).catch(function (error) {
+        console.error(error);
+    });
+}
+
+$.ajax({
+    url: '/api/clinic/' + clinicId,
+    success: function (result) {
+        initClinic(result);
+    }
+});

@@ -17,7 +17,7 @@ $.ajax({
         $('#search-location-gu .dropdown-menu').html(areaHtml);
 
         $('#search-location-gu .dropdown-menu a').on('click', function (event) {
-            addDropdownEvent(event, this);
+            addDropEvent(event, this);
 
             var areaId = $(this).attr('area-id');
             requestList(areaId);
@@ -49,16 +49,6 @@ function setList(cafe) {
         location.href = './caferesult.html?id=' + cafeId;
     });
 }
-
-function addDropdownEvent(event, element) {
-    event.preventDefault();
-
-    var html = $(element).html();
-    var dropdownTitle = $(element).parents('.btn-group').find('.dropdown-title');
-    dropdownTitle.html(html);
-}
-
-
 
 
 
