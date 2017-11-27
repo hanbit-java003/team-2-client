@@ -12,8 +12,8 @@ function Search(searchinput, setListFunction) {
     var searchTimer;
     var lastSearchTimer= _.now();
 
-    this.updateList = function (orignList) {
-        areaList = orignList;
+    this.updateList = function (originList) {
+        areaList = originList;
 
         search();
     };
@@ -76,12 +76,12 @@ function Search(searchinput, setListFunction) {
     function search() {
         var keyword = _.kebabCase(inputbox.val().toLowerCase());
 
-        areaList.forEach(function (cafe) {
-            if (cafe.id.includes(keyword) || hangulSearch(cafe.name,keyword)) {
-                delete cafe.hidden;
+        areaList.forEach(function (model) {
+            if (model.id.includes(keyword) || hangulSearch(model.name,keyword)) {
+                delete model.hidden;
             }
             else {
-                cafe.hidden = true;
+                model.hidden = true;
             }
         });
 

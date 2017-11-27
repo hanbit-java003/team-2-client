@@ -62,6 +62,9 @@ function openMemberLayer(memberInfo) {
     scriptjs('//developers.kakao.com/sdk/js/kakao.js', function() {
     });
 
+    scriptjs('//static.nid.naver.com/js/naverLogin_implicit-1.0.3.js', function () {
+    });
+
     $('.header-sub').animate({
         right: '0px'
     }, {
@@ -88,6 +91,9 @@ function openMemberLayer(memberInfo) {
 
                 $('#custom-login-btn').on('click', function () {
                     kakao();
+                });
+
+                $('#custom-naver-login-btn').on('click', function () {
                 });
             }
             else {

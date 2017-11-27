@@ -50,5 +50,12 @@ function setList(cafe) {
     });
 }
 
+function addDropEvent(event, element) {
+    /*event.preventDefault();*/
+
+    var html = $(element).html();
+    var dropdownTitle = $(element).parents('.btn-group').find('.dropdown-title');
+    dropdownTitle.html(html);
+}
 
 
