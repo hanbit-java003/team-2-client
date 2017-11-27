@@ -1,9 +1,12 @@
 require('../less/showoff-write.less');
 
+
 var UrlSearchParams = require('url-search-params');
 var params = new UrlSearchParams(location.search);
 
 var common = require('./common');
+
+var _ = require('lodash');
 
 var model = {
     lists: []
