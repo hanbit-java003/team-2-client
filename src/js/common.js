@@ -20,6 +20,75 @@ function kakao() {
     });
 }
 
+/*function naver() {
+    var express = require('express');
+    var app = express();
+    var client_id = 'YOUR_CLIENT_ID';
+    var client_secret = 'YOUR_CLIENT_SECRET';
+    var state = "RAMDOM_STATE";
+    var redirectURI = encodeURI("YOUR_CALLBACK_URL");
+    var api_url = "";
+    app.get('/naverlogin', function (req, res) {
+        api_url = 'https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=' + client_id + '&redirect_uri=' + redirectURI + '&state=' + state;
+        res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'});
+        res.end("<a href='"+ api_url + "'><img height='50' src='http://static.nid.naver.com/oauth/small_g_in.PNG'/></a>");
+    });
+    app.get('/callback', function (req, res) {
+        code = req.query.code;
+        state = req.query.state;
+        api_url = 'https://nid.naver.com/oauth2.0/token?grant_type=authorization_code&client_id='
+            + client_id + '&client_secret=' + client_secret + '&redirect_uri=' + redirectURI + '&code=' + code + '&state=' + state;
+        var request = require('request');
+        var options = {
+            url: api_url,
+            headers: {'X-Naver-Client-Id':client_id, 'X-Naver-Client-Secret': client_secret}
+        };
+        request.get(options, function (error, response, body) {
+            if (!error && response.statusCode == 200) {
+                res.writeHead(200, {'Content-Type': 'text/json;charset=utf-8'});
+                res.end(body);
+            } else {
+                res.status(response.statusCode).end();
+                console.log('error = ' + response.statusCode);
+            }
+        });
+    });
+    app.listen(3000, function () {
+        console.log('http://127.0.0.1:3000/naverlogin app listening on port 3000!');
+    });
+}*/
+
+function facebook() {
+        FB.init({
+            appId: '1965751797081808',
+            cookie: true,
+            xfbml: true,
+            version: 'v2.11'
+        });
+
+        FB.login(function(response) { // response 처리
+            }, {scope: 'public_profile'});
+
+        FB.getLoginStatus(function (response) {
+            if (response.status === 'connected') {
+                var accessToken = response.authResponse.accessToken;
+
+                FB.api('/me', function (accessToken) {
+                    var name = accessToken.name;
+                    snsFbLogIn(name);
+                    alert(name + '님, 어서오세요');
+                });
+            }
+        });
+
+    (function(d,s,id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        fjs.parentNode.insertBefore(js, fjs);
+    } (document, 'script', 'facebook-jssdk'));
+}
+
 function window() {
     $('.main-window').fadeIn(400);
 }
@@ -65,6 +134,10 @@ function openMemberLayer(memberInfo) {
     scriptjs('//static.nid.naver.com/js/naverLogin_implicit-1.0.3.js', function () {
     });
 
+    scriptjs('//connect.facebook.net/en_US/sdk.js', function () {
+
+    });
+
     $('.header-sub').animate({
         right: '0px'
     }, {
@@ -93,7 +166,8 @@ function openMemberLayer(memberInfo) {
                     kakao();
                 });
 
-                $('#custom-naver-login-btn').on('click', function () {
+                $('#fb-login-btn').on('click', function () {
+                    facebook();
                 });
             }
             else {
@@ -228,13 +302,27 @@ function memberLogOut() {
 }
 
 function snsLogIn(kakaoMember) {
-    var nickname = kakaoMember.properties.nickname;
+    var name = kakaoMember.properties.nickname;
 
     $.ajax({
         url: '/api/member/snssignin',
         method: 'POST',
         data: {
-            nickname: nickname
+            nickname: name
+        },
+        success: function (result) {
+            closeMemberLayer();
+        }
+    });
+}
+
+function snsFbLogIn(name) {
+
+    $.ajax({
+        url: '/api/member/snssignin',
+        method: 'POST',
+        data: {
+            nickname: name
         },
         success: function (result) {
             closeMemberLayer();

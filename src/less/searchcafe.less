@@ -25,6 +25,11 @@
   min-width: 100px;
 }
 
+#search-location-gu .dropdown-menu {
+  max-height: 200px;
+  overflow: auto;
+}
+
 #search-location-name {
   display: inline-table;
   max-width: 300px;
@@ -85,13 +90,14 @@
 
 .search-result-box {
   height: 800px;
-  width: 100%;
+  width: 1000px;
   margin: 0 auto;
 }
 
 .search-result-list {
   margin-top: 50px;
   height: 500px;
+  display: inline-block;
 }
 
 .search-result-list > li {
@@ -99,6 +105,7 @@
   padding: 30px 0 0 20px;
   width: 50%;
   height: 65%;
+  overflow: auto;
   background-color: @object-bgcolor;
   cursor: pointer;
 }
@@ -109,6 +116,7 @@
 }
 
 .search-result-text {
+  display: inline-block;
   letter-spacing: -1px;
   font-size: 18px;
   padding-bottom: 10px;
@@ -124,7 +132,18 @@
 }
 
 .search-result-detail {
-  position: absolute;
+  font-weight: 20px;
   padding-left: 250px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.search-detail-text {
+  display: -webkit-box;
+  height: 200px;
+  overflow: hidden;
+  /*text-overflow: ellipsis;*/
+  /*-webkit-line-clamp: 2;*/
+  -webkit-box-orient: vertical;
 }
 
