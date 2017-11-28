@@ -39,7 +39,6 @@ function requestList(showoffId) {
 
 }
 
-
 function setList(showoff) {
     var showoffTemplate = require('../template/showoff-list.hbs');
     var showoffHtml = showoffTemplate(showoff);
