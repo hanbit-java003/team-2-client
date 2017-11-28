@@ -44,6 +44,15 @@ function addPreview(url, saved) {
     });
 }
 
+$('.file_input_hidden').on('change',add_filebox)
+function add_filebox(){
+    var name_input=$('#fileName');
+    var filePath=this.value;
+    var fileValue=filePath.split("\\");
+    var fileName=fileValue[fileValue.length-1]; //파일명
+    name_input.val(fileName);
+}
+
 $('#showoff-img').on('change', function() {
     if (this.files.length === 0) {
         return;
@@ -70,7 +79,7 @@ $('#showoff-img').on('change', function() {
 
 $('.w-btn').on('click', function() {
     model.nickname = $('#showoff-writer').val().trim();
-    model.password = $('#showoff-pw').val().trim();
+    model.pw = $('#showoff-pw').val().trim();
     model.title = $('#showoff-title').val().trim();
     model.cont = $('#showoff-cont').val().trim();
 
@@ -78,11 +87,11 @@ $('.w-btn').on('click', function() {
         alert('닉네임을 입력하세요');
         return;
     }
-    else if (!model.password) {
+   /* else if (!model.password) {
         alert('비밀번호를 입력하세요');
         $('#showoff-pw').focus();
         return;
-    }
+    }*/
     else if (!model.title) {
         alert('제목을 입력하세요.');
         $('#showoff-title').focus();
