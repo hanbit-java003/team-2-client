@@ -192,6 +192,7 @@ function memberLogIn() {
     if (!email) {
         alert('이메일을 입력하세요');
         $('#member-email').focus();
+
         return;
     }
     else if (!password) {
