@@ -8,9 +8,7 @@ var common = require('./common');
 
 var _ = require('lodash');
 
-var model = {
-    lists: []
-};
+var model = {};
 
 var validId = false;
 var photos = [];
@@ -115,8 +113,6 @@ $('.w-btn').on('click', function() {
             });
         });
     }
-
-    delete model.there;
 
     var formData = new FormData();
     formData.append('model', JSON.stringify(model));
