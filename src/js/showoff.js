@@ -2,12 +2,18 @@ require('bootstrap');
 require('../less/showoff.less');
 
 var common = require('./common');
+
+
+$('.showoff-write').on('click', function() {
+    location.href = './showoff-write.html';
+});
+
 var Search = require('./search-common/search');
 var search = new Search(setList());
 
 var showoffList = require('./model/showoff-list');
 
-/*function initShowoffList(showoffList) {
+function initShowoffList(showoffList) {
     var template = require('../template/showoff-list.hbs');
 
     $('.pet-like-board-cont').empty();
@@ -19,11 +25,7 @@ var showoffList = require('./model/showoff-list');
     }
 }
 
-initShowoffList(showoffList);*/
-
-$('.showoff-write').on('click', function() {
-    location.href = './showoff-write.html';
-});
+initShowoffList(showoffList);
 
 $('.pet-like-board-cont > li').on('click', function() {
     location.href = './showoff-page.html';
