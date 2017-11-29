@@ -2,19 +2,20 @@ require('bootstrap');
 require('../less/showoff-page.less');
 
 var common = require('./common');
+var URLSearchParams = require('url-search-params');
+var params = new URLSearchParams(location.search);
+var storyId = params.get('id');
 
-var showoffcont = require('./model/show-story');
+function detail(result) {
+    var showStory = require('../template/show-story.hbs');
+    var storyHtml = showStory(result);
 
-function initShowoffcont(showoffcont) {
-    var template = require('../template/show-story.hbs');
-
-    $('.showoff-story').empty();
-
-    for (var i=0; i<showoffcont.length; i++) {
-        var html = template(showoffcont[i]);
-
-        $('.showoff-story').append(html);
-    }
+    $('.showoff-story').append(storyHtml);
 }
 
-initShowoffcont(showoffcont);
+$.ajax({
+    url: '/api/showoff/' + storyId,
+    success: function (result) {
+        detail(result);
+    }
+});

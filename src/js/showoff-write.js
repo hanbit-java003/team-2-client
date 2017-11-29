@@ -79,7 +79,7 @@ $('#showoff-img').on('change', function() {
 
 $('.w-btn').on('click', function() {
     model.nickname = $('#showoff-writer').val().trim();
-    model.pw = $('#showoff-pw').val().trim();
+    model.password = $('#showoff-pw').val().trim();
     model.title = $('#showoff-title').val().trim();
     model.cont = $('#showoff-cont').val().trim();
 

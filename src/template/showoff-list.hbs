@@ -1,8 +1,10 @@
-<li>
-    <div class="pet-like-cont-img" style="background-image: url('{{img}}')"></div>
+{{~#each this~}}
+<li showoffId="{{no}}">
+    <div class="pet-like-cont-img" style="background-image: url('{{fileimg}}')"></div>
     <div class="pet-like-cont-tt">{{title}}</div>
     <div class="pet-like-cont-w">
-        {{writer}}
-        <br>{{day}}
+        {{nickname}}
+        <br>{{dateDT}}
     </div>
 </li>
+{{~/each~}}
